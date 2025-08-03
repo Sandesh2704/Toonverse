@@ -1,63 +1,59 @@
 "use client"
 
-import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useState, useMemo } from "react"
+import { useSelector } from "react-redux"
 import type { RootState } from "@/store"
-import { setComics } from "@/store/comicsSlice"
 import { demoComics } from "@/data/demoComics"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Plus, Search, Eye, Edit, Trash2, BookOpen, TrendingUp, Star } from "lucide-react"
-import { motion } from "framer-motion"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Plus, Search, Eye, Edit, Trash2, Star, Heart, BookOpen } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
-import { useEffect } from "react"
 
 export default function ComicsPage() {
-  const dispatch = useDispatch()
-  const { comics, loading } = useSelector((state: RootState) => state.comics)
   const { categories } = useSelector((state: RootState) => state.categories)
-
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [selectedStatus, setSelectedStatus] = useState("all")
 
-  // Load demo comics on component mount
-  useEffect(() => {
-    if (comics.length === 0) {
-      dispatch(setComics(demoComics))
-    }
-  }, [dispatch, comics.length])
+  const filteredComics = useMemo(() => {
+    return demoComics.filter((comic) => {
+      const matchesSearch =
+        comic.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        comic.author.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesCategory = selectedCategory === "all" || comic.category === selectedCategory
+      const matchesStatus = selectedStatus === "all" || comic.status === selectedStatus
 
-  const filteredComics = demoComics.filter((comic) => {
-    const matchesSearch =
-      comic.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      comic.author.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === "all" || comic.category === selectedCategory
-    const matchesStatus = selectedStatus === "all" || comic.status === selectedStatus
+      return matchesSearch && matchesCategory && matchesStatus
+    })
+  }, [searchTerm, selectedCategory, selectedStatus])
 
-    return matchesSearch && matchesCategory && matchesStatus
-  })
-
-  const totalComics = demoComics.length
   const totalViews = demoComics.reduce((sum, comic) => sum + comic.views, 0)
+  const totalLikes = demoComics.reduce((sum, comic) => sum + comic.likes, 0)
+  const totalEpisodes = demoComics.reduce((sum, comic) => sum + comic.episodeCount, 0)
   const averageRating = demoComics.reduce((sum, comic) => sum + comic.rating, 0) / demoComics.length
 
   const getStatusColor = (status: string) => {
     switch (status) {
       case "ongoing":
-        return "bg-green-100 text-green-800"
+        return "bg-green-500"
       case "completed":
-        return "bg-blue-100 text-blue-800"
+        return "bg-blue-500"
       case "hiatus":
-        return "bg-yellow-100 text-yellow-800"
+        return "bg-yellow-500"
       default:
-        return "bg-gray-100 text-gray-800"
+        return "bg-gray-500"
     }
+  }
+
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) return (num / 1000000).toFixed(1) + "M"
+    if (num >= 1000) return (num / 1000).toFixed(1) + "K"
+    return num.toString()
   }
 
   return (
@@ -66,109 +62,96 @@ export default function ComicsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Comics Management</h1>
-          <p className="text-muted-foreground">Manage and moderate comic content</p>
+          <p className="text-muted-foreground">Manage your comic collection and track performance</p>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/comics/create">
-            <Plus className="mr-2 h-4 w-4" />
-            Add Comic
-          </Link>
+        <Button>
+          <Plus className="h-4 w-4 mr-2" />
+          Add Comic
         </Button>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Comics</CardTitle>
-              <BookOpen className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{totalComics}</div>
-              <p className="text-xs text-muted-foreground">
-                {demoComics.filter((c) => c.status === "ongoing").length} ongoing
-              </p>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Views</CardTitle>
-              <Eye className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{totalViews.toLocaleString()}</div>
-              <p className="text-xs text-muted-foreground">Across all comics</p>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Average Rating</CardTitle>
-              <Star className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{averageRating.toFixed(1)}</div>
-              <p className="text-xs text-muted-foreground">Out of 5.0 stars</p>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Episodes</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">
-                {demoComics.reduce((sum, comic) => sum + comic.episodes.length, 0)}
-              </div>
-              <p className="text-xs text-muted-foreground">Published episodes</p>
-            </CardContent>
-          </Card>
-        </motion.div>
+      <div className="grid gap-4 md:grid-cols-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Comics</CardTitle>
+            <BookOpen className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{demoComics.length}</div>
+            <p className="text-xs text-muted-foreground">
+              {demoComics.filter((c) => c.status === "ongoing").length} ongoing
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Views</CardTitle>
+            <Eye className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{formatNumber(totalViews)}</div>
+            <p className="text-xs text-muted-foreground">Across all comics</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Likes</CardTitle>
+            <Heart className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{formatNumber(totalLikes)}</div>
+            <p className="text-xs text-muted-foreground">{totalEpisodes} total episodes</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Average Rating</CardTitle>
+            <Star className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{averageRating.toFixed(1)}</div>
+            <p className="text-xs text-muted-foreground">Out of 5.0 stars</p>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Filters */}
       <Card>
         <CardHeader>
-          <CardTitle>Filters</CardTitle>
-          <CardDescription>Filter and search through comics</CardDescription>
+          <CardTitle>Filter Comics</CardTitle>
+          <CardDescription>Search and filter your comic collection</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex gap-4">
             <div className="flex-1">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search comics or authors..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-8"
                 />
               </div>
             </div>
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="w-full md:w-[200px]">
+              <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((category) => (
-                  <SelectItem key={category.id} value={category.name}>
-                    {category.name}
-                  </SelectItem>
-                ))}
+                {categories
+                  .filter((cat) => cat.isActive)
+                  .map((category) => (
+                    <SelectItem key={category.id} value={category.name}>
+                      {category.name}
+                    </SelectItem>
+                  ))}
               </SelectContent>
             </Select>
             <Select value={selectedStatus} onValueChange={setSelectedStatus}>
-              <SelectTrigger className="w-full md:w-[200px]">
+              <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -186,7 +169,7 @@ export default function ComicsPage() {
       <Card>
         <CardHeader>
           <CardTitle>Comics ({filteredComics.length})</CardTitle>
-          <CardDescription>Manage your comic collection and their details</CardDescription>
+          <CardDescription>Manage your comic collection</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
@@ -197,9 +180,10 @@ export default function ComicsPage() {
                 <TableHead>Category</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Episodes</TableHead>
-                <TableHead>Views</TableHead>
                 <TableHead>Rating</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead>Views</TableHead>
+                <TableHead>Likes</TableHead>
+                <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -207,52 +191,55 @@ export default function ComicsPage() {
                 <TableRow key={comic.id}>
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <div className="relative w-12 h-16 rounded overflow-hidden">
-                        <Image
-                          src={comic.thumbnail || "/placeholder.svg"}
-                          alt={comic.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
+                      <Image
+                        src={comic.thumbnail || "/placeholder.svg"}
+                        alt={comic.title}
+                        width={40}
+                        height={60}
+                        className="rounded object-cover"
+                      />
                       <div>
                         <div className="font-medium">{comic.title}</div>
-                        <div className="text-sm text-muted-foreground line-clamp-1">{comic.description}</div>
+                        <div className="text-sm text-muted-foreground">{comic.description.substring(0, 50)}...</div>
                       </div>
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="font-medium">{comic.author}</div>
+                    <div className="flex items-center gap-2">
+                      <Avatar className="h-8 w-8">
+                        <AvatarImage src={`/placeholder.svg?height=32&width=32&text=${comic.author.charAt(0)}`} />
+                        <AvatarFallback>{comic.author.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      {comic.author}
+                    </div>
                   </TableCell>
                   <TableCell>
                     <Badge variant="outline">{comic.category}</Badge>
                   </TableCell>
                   <TableCell>
-                    <Badge className={getStatusColor(comic.status)}>{comic.status}</Badge>
+                    <div className="flex items-center gap-2">
+                      <div className={`w-2 h-2 rounded-full ${getStatusColor(comic.status)}`} />
+                      <span className="capitalize">{comic.status}</span>
+                    </div>
                   </TableCell>
-                  <TableCell>
-                    <Badge variant="secondary">{comic.episodes.length} episodes</Badge>
-                  </TableCell>
-                  <TableCell>{comic.views.toLocaleString()}</TableCell>
+                  <TableCell>{comic.episodeCount}</TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span>{comic.rating}</span>
+                      {comic.rating}
                     </div>
                   </TableCell>
-                  <TableCell className="text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <Button variant="ghost" size="sm" asChild>
-                        <Link href={`/comics/${comic.id}`}>
-                          <Eye className="h-4 w-4" />
-                        </Link>
+                  <TableCell>{formatNumber(comic.views)}</TableCell>
+                  <TableCell>{formatNumber(comic.likes)}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <Button variant="outline" size="sm">
+                        <Eye className="h-4 w-4" />
                       </Button>
-                      <Button variant="ghost" size="sm" asChild>
-                        <Link href={`/dashboard/comics/${comic.id}/edit`}>
-                          <Edit className="h-4 w-4" />
-                        </Link>
+                      <Button variant="outline" size="sm">
+                        <Edit className="h-4 w-4" />
                       </Button>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="outline" size="sm">
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>

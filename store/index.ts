@@ -1,21 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit"
-import comicsReducer from "./comicsSlice"
 import userReducer from "./userSlice"
-import notificationReducer from "./notificationSlice"
+import comicsReducer from "./comicsSlice"
 import chatReducer from "./chatSlice"
 import analyticsReducer from "./analyticsSlice"
+import notificationReducer from "./notificationSlice"
 import categoriesReducer from "./categoriesSlice"
 
 export const store = configureStore({
   reducer: {
-    comics: comicsReducer,
     user: userReducer,
-    notifications: notificationReducer,
+    comics: comicsReducer,
     chat: chatReducer,
     analytics: analyticsReducer,
-    categories: categoriesReducer,
+    notifications: notificationReducer,
+    categories: categoriesReducer, // Add this line
   },
 })
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch

@@ -17,127 +17,139 @@ interface CategoriesState {
   categories: Category[]
   loading: boolean
   error: string | null
-  selectedCategory: Category | null
 }
 
+const demoCategories: Category[] = [
+  {
+    id: "1",
+    name: "Fantasy",
+    description: "Magical worlds and mythical creatures",
+    slug: "fantasy",
+    color: "purple",
+    icon: "Sparkles",
+    isActive: true,
+    comicsCount: 15,
+    createdAt: "2024-01-15T10:00:00Z",
+    updatedAt: "2024-01-15T10:00:00Z",
+  },
+  {
+    id: "2",
+    name: "Sci-Fi",
+    description: "Futuristic technology and space adventures",
+    slug: "sci-fi",
+    color: "blue",
+    icon: "Rocket",
+    isActive: true,
+    comicsCount: 12,
+    createdAt: "2024-01-16T10:00:00Z",
+    updatedAt: "2024-01-16T10:00:00Z",
+  },
+  {
+    id: "3",
+    name: "Romance",
+    description: "Love stories and relationships",
+    slug: "romance",
+    color: "pink",
+    icon: "Heart",
+    isActive: true,
+    comicsCount: 8,
+    createdAt: "2024-01-17T10:00:00Z",
+    updatedAt: "2024-01-17T10:00:00Z",
+  },
+  {
+    id: "4",
+    name: "Action",
+    description: "High-energy adventures and battles",
+    slug: "action",
+    color: "red",
+    icon: "Zap",
+    isActive: true,
+    comicsCount: 20,
+    createdAt: "2024-01-18T10:00:00Z",
+    updatedAt: "2024-01-18T10:00:00Z",
+  },
+  {
+    id: "5",
+    name: "Mystery",
+    description: "Puzzles, secrets, and detective stories",
+    slug: "mystery",
+    color: "gray",
+    icon: "Search",
+    isActive: true,
+    comicsCount: 6,
+    createdAt: "2024-01-19T10:00:00Z",
+    updatedAt: "2024-01-19T10:00:00Z",
+  },
+  {
+    id: "6",
+    name: "Horror",
+    description: "Scary and supernatural stories",
+    slug: "horror",
+    color: "black",
+    icon: "Ghost",
+    isActive: false,
+    comicsCount: 4,
+    createdAt: "2024-01-20T10:00:00Z",
+    updatedAt: "2024-01-20T10:00:00Z",
+  },
+  {
+    id: "7",
+    name: "Comedy",
+    description: "Funny and lighthearted stories",
+    slug: "comedy",
+    color: "yellow",
+    icon: "Smile",
+    isActive: true,
+    comicsCount: 10,
+    createdAt: "2024-01-21T10:00:00Z",
+    updatedAt: "2024-01-21T10:00:00Z",
+  },
+  {
+    id: "8",
+    name: "Slice of Life",
+    description: "Everyday life and realistic stories",
+    slug: "slice-of-life",
+    color: "green",
+    icon: "Coffee",
+    isActive: true,
+    comicsCount: 7,
+    createdAt: "2024-01-22T10:00:00Z",
+    updatedAt: "2024-01-22T10:00:00Z",
+  },
+]
+
 const initialState: CategoriesState = {
-  categories: [
-    {
-      id: "1",
-      name: "Fantasy",
-      description: "Magical worlds, mythical creatures, and supernatural adventures",
-      slug: "fantasy",
-      color: "#8B5CF6",
-      icon: "Sparkles",
-      isActive: true,
-      comicsCount: 156,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-    {
-      id: "2",
-      name: "Sci-Fi",
-      description: "Futuristic technology, space exploration, and scientific fiction",
-      slug: "sci-fi",
-      color: "#06B6D4",
-      icon: "Rocket",
-      isActive: true,
-      comicsCount: 89,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-    {
-      id: "3",
-      name: "Romance",
-      description: "Love stories, relationships, and emotional journeys",
-      slug: "romance",
-      color: "#EC4899",
-      icon: "Heart",
-      isActive: true,
-      comicsCount: 234,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-    {
-      id: "4",
-      name: "Action",
-      description: "High-energy adventures, battles, and thrilling sequences",
-      slug: "action",
-      color: "#EF4444",
-      icon: "Zap",
-      isActive: true,
-      comicsCount: 178,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-    {
-      id: "5",
-      name: "Mystery",
-      description: "Puzzles, detective stories, and suspenseful narratives",
-      slug: "mystery",
-      color: "#6366F1",
-      icon: "Search",
-      isActive: true,
-      comicsCount: 67,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-    {
-      id: "6",
-      name: "Horror",
-      description: "Scary stories, supernatural terror, and spine-chilling tales",
-      slug: "horror",
-      color: "#1F2937",
-      icon: "Ghost",
-      isActive: true,
-      comicsCount: 45,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-    {
-      id: "7",
-      name: "Comedy",
-      description: "Humorous stories, funny situations, and light-hearted content",
-      slug: "comedy",
-      color: "#F59E0B",
-      icon: "Smile",
-      isActive: true,
-      comicsCount: 123,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-    {
-      id: "8",
-      name: "Drama",
-      description: "Emotional stories, character development, and serious themes",
-      slug: "drama",
-      color: "#10B981",
-      icon: "Theater",
-      isActive: true,
-      comicsCount: 98,
-      createdAt: "2024-01-01T00:00:00Z",
-      updatedAt: "2024-01-15T00:00:00Z",
-    },
-  ],
+  categories: demoCategories,
   loading: false,
   error: null,
-  selectedCategory: null,
 }
 
 const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
-    setCategories: (state, action: PayloadAction<Category[]>) => {
-      state.categories = action.payload
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload
     },
-    addCategory: (state, action: PayloadAction<Category>) => {
-      state.categories.push(action.payload)
+    setError: (state, action: PayloadAction<string | null>) => {
+      state.error = action.payload
+    },
+    addCategory: (state, action: PayloadAction<Omit<Category, "id" | "createdAt" | "updatedAt">>) => {
+      const newCategory: Category = {
+        ...action.payload,
+        id: Date.now().toString(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      }
+      state.categories.push(newCategory)
     },
     updateCategory: (state, action: PayloadAction<Category>) => {
       const index = state.categories.findIndex((cat) => cat.id === action.payload.id)
       if (index !== -1) {
-        state.categories[index] = action.payload
+        state.categories[index] = {
+          ...action.payload,
+          updatedAt: new Date().toISOString(),
+        }
       }
     },
     deleteCategory: (state, action: PayloadAction<string>) => {
@@ -150,27 +162,10 @@ const categoriesSlice = createSlice({
         category.updatedAt = new Date().toISOString()
       }
     },
-    setSelectedCategory: (state, action: PayloadAction<Category | null>) => {
-      state.selectedCategory = action.payload
-    },
-    setLoading: (state, action: PayloadAction<boolean>) => {
-      state.loading = action.payload
-    },
-    setError: (state, action: PayloadAction<string | null>) => {
-      state.error = action.payload
-    },
   },
 })
 
-export const {
-  setCategories,
-  addCategory,
-  updateCategory,
-  deleteCategory,
-  toggleCategoryStatus,
-  setSelectedCategory,
-  setLoading,
-  setError,
-} = categoriesSlice.actions
+export const { setLoading, setError, addCategory, updateCategory, deleteCategory, toggleCategoryStatus } =
+  categoriesSlice.actions
 
 export default categoriesSlice.reducer
