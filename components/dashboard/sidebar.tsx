@@ -41,6 +41,7 @@ import {
   Home,
   LogOut,
   ChevronUp,
+  Tags,
 } from "lucide-react"
 
 const menuItems = [
@@ -68,6 +69,12 @@ const menuItems = [
         title: "Comics",
         url: "/dashboard/comics",
         icon: BookOpen,
+        roles: ["super_admin", "admin", "maintainer"],
+      },
+      {
+        title: "Categories",
+        url: "/dashboard/categories",
+        icon: Tags,
         roles: ["super_admin", "admin", "maintainer"],
       },
       {

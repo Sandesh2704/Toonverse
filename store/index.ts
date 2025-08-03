@@ -4,6 +4,7 @@ import userReducer from "./userSlice"
 import notificationReducer from "./notificationSlice"
 import chatReducer from "./chatSlice"
 import analyticsReducer from "./analyticsSlice"
+import categoriesReducer from "./categoriesSlice"
 
 export const store = configureStore({
   reducer: {
@@ -12,24 +13,8 @@ export const store = configureStore({
     notifications: notificationReducer,
     chat: chatReducer,
     analytics: analyticsReducer,
+    categories: categoriesReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [
-          "chat/addMessage",
-          "chat/setSearchResults",
-          "analytics/trackSearch",
-          "analytics/updateDashboardData",
-        ],
-        ignoredPaths: [
-          "chat.search.results",
-          "chat.activeRooms",
-          "analytics.searchAnalytics",
-          "analytics.dashboardData",
-        ],
-      },
-    }),
 })
 
 export type RootState = ReturnType<typeof store.getState>
