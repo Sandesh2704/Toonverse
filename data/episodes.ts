@@ -1,0 +1,86 @@
+import type { Episode } from "@/types/comic"
+
+export const dummyEpisodes: Episode[] = [
+  // Shadow Realm Chronicles episodes
+  {
+    id: "ep1-1",
+    comicId: "1",
+    title: "The Awakening",
+    episodeNumber: 1,
+    content: [
+      "/placeholder.svg?height=800&width=600&text=Page+1",
+      "/placeholder.svg?height=800&width=600&text=Page+2",
+      "/placeholder.svg?height=800&width=600&text=Page+3",
+    ],
+    thumbnail: "/placeholder.svg?height=200&width=300&text=Episode+1",
+    views: 15000,
+    createdAt: "2024-01-15T00:00:00Z",
+    updatedAt: "2024-01-15T00:00:00Z",
+    isApproved: true,
+  },
+  {
+    id: "ep1-2",
+    comicId: "1",
+    title: "Into the Shadows",
+    episodeNumber: 2,
+    content: [
+      "/placeholder.svg?height=800&width=600&text=Page+1",
+      "/placeholder.svg?height=800&width=600&text=Page+2",
+      "/placeholder.svg?height=800&width=600&text=Page+3",
+    ],
+    thumbnail: "/placeholder.svg?height=200&width=300&text=Episode+2",
+    views: 12000,
+    createdAt: "2024-01-16T00:00:00Z",
+    updatedAt: "2024-01-16T00:00:00Z",
+    isApproved: true,
+  },
+  {
+    id: "ep1-3",
+    comicId: "1",
+    title: "The First Battle",
+    episodeNumber: 3,
+    content: [
+      "/placeholder.svg?height=800&width=600&text=Page+1",
+      "/placeholder.svg?height=800&width=600&text=Page+2",
+      "/placeholder.svg?height=800&width=600&text=Page+3",
+    ],
+    thumbnail: "/placeholder.svg?height=200&width=300&text=Episode+3",
+    views: 10000,
+    createdAt: "2024-01-17T00:00:00Z",
+    updatedAt: "2024-01-17T00:00:00Z",
+    isApproved: true,
+  },
+  // Neon City Nights episodes
+  {
+    id: "ep2-1",
+    comicId: "2",
+    title: "Digital Dreams",
+    episodeNumber: 1,
+    content: [
+      "/placeholder.svg?height=800&width=600&text=Page+1",
+      "/placeholder.svg?height=800&width=600&text=Page+2",
+      "/placeholder.svg?height=800&width=600&text=Page+3",
+    ],
+    thumbnail: "/placeholder.svg?height=200&width=300&text=Episode+1",
+    views: 8000,
+    createdAt: "2024-01-10T00:00:00Z",
+    updatedAt: "2024-01-10T00:00:00Z",
+    isApproved: true,
+  },
+  {
+    id: "ep2-2",
+    comicId: "2",
+    title: "The Hack",
+    episodeNumber: 2,
+    content: [
+      "/placeholder.svg?height=800&width=600&text=Page+1",
+      "/placeholder.svg?height=800&width=600&text=Page+2",
+      "/placeholder.svg?height=800&width=600&text=Page+3",
+    ],
+    thumbnail: "/placeholder.svg?height=200&width=300&text=Episode+2",
+    views: 7500,
+    createdAt: "2024-01-12T00:00:00Z",
+    updatedAt: "2024-01-12T00:00:00Z",
+    isApproved: true,
+  },
+]
