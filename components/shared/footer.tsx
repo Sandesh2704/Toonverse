@@ -2,11 +2,15 @@ import Link from "next/link"
 import { BookOpen, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Section from "./section"
 
 export function Footer() {
   return (
-    <footer className="bg-muted/50 border-t">
-      <div className="container py-12">
+    <Section variant="footer" className="py-12" >
+
+   
+    <footer className="">
+ 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
@@ -103,7 +107,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
           <p>&copy; 2024 InkSaga. All rights reserved.</p>
         </div>
-      </div>
     </footer>
+     </Section> 
   )
 }

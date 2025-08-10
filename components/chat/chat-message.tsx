@@ -114,7 +114,7 @@ export function ChatMessage({ message, showAvatar }: ChatMessageProps) {
             <Reply className="h-3 w-3" />
           </Button>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger >
               <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
                 <MoreHorizontal className="h-3 w-3" />
               </Button>

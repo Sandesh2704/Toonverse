@@ -152,7 +152,7 @@ export default function ForumsPage() {
           <h1 className="text-3xl font-bold">Community Forums</h1>
           <p className="text-muted-foreground">Discuss, share knowledge, and connect with fellow creators</p>
         </div>
-        <Button asChild>
+        <Button >
           <Link href="/community/forums/new">
             <Plus className="mr-2 h-4 w-4" />
             New Topic
@@ -240,7 +240,7 @@ export default function ForumsPage() {
                           </span>
                         </div>
                       </div>
-                      <Button variant="outline" asChild>
+                      <Button variant="outline">
                         <Link href={`/community/forums/${category.id}`}>View Topics</Link>
                       </Button>
                     </div>

@@ -12,17 +12,38 @@ export interface User {
 export type UserRole = "reader" | "writer" | "maintainer" | "admin" | "super_admin"
 
 export interface Writer extends User {
-  bio: string
+  bio: string,
+  username: string,
+  rating: number,
+  isFollowing: boolean,
+  isVerified: boolean,
+  genres: string[]
+  latestComic?: string
+  stats?: {
+    monthlyViews: number,
+    weeklyFollowers: number,
+    engagementRate: number,
+  } ,
+  achievements?: string[]
   socialLinks: {
     twitter?: string
     instagram?: string
     youtube?: string
-    website?: string
+    website?: string,
+    patreon?: string,
+     artstation?: string,
+      webtoon?:string,
+      tapas?: string,
+      pixiv?: string,
+      other?: string,
+       gumroad?:string
   }
   followers: number
   totalComics: number
-  totalViews: number
-  isVerified: boolean
+  totalViews: number,
+  languages?: string[]
+  country?: string
+  joinDate?: string
 }
 
 export interface ReadingHistory {

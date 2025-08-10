@@ -104,13 +104,13 @@ export default function WriterDashboard() {
           <p className="text-muted-foreground">Welcome back! Here's how your comics are performing.</p>
         </div>
         <div className="flex items-center space-x-2">
-          <Button variant="outline" asChild>
+          <Button variant="outline" >
             <Link href="/writer/analytics">
               <BarChart3 className="mr-2 h-4 w-4" />
               View Analytics
             </Link>
           </Button>
-          <Button asChild>
+          <Button >
             <Link href="/writer/create">
               <Plus className="mr-2 h-4 w-4" />
               Create New Comic
@@ -192,7 +192,7 @@ export default function WriterDashboard() {
               <CardTitle>My Comics</CardTitle>
               <CardDescription>Manage and track your comic series</CardDescription>
             </div>
-            <Button variant="outline" asChild>
+            <Button variant="outline" >
               <Link href="/writer/comics">View All Comics</Link>
             </Button>
           </div>
@@ -248,11 +248,11 @@ export default function WriterDashboard() {
                   )}
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <Button size="sm" variant="outline" asChild>
+                  <Button size="sm" variant="outline" >
                     <Link href={`/writer/comics/${comic.id}`}>Manage</Link>
                   </Button>
                   {comic.status === "published" && (
-                    <Button size="sm" variant="ghost" asChild>
+                    <Button size="sm" variant="ghost" >
                       <Link href={`/comics/${comic.id}`}>View</Link>
                     </Button>
                   )}

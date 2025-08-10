@@ -20,6 +20,7 @@
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
+  --primary-blue: oklch(47.707% 0.2927 264.189);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
@@ -162,7 +163,7 @@
 }
 
 .comic-card:hover {
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 

@@ -48,7 +48,7 @@ export function ChatInput({ onSendMessage }: ChatInputProps) {
         {/* Attachment Options */}
         <div className="flex items-center gap-1">
           <Tooltip>
-            <TooltipTrigger asChild>
+            <TooltipTrigger >
               <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
                 <Paperclip className="h-4 w-4" />
               </Button>
@@ -57,7 +57,7 @@ export function ChatInput({ onSendMessage }: ChatInputProps) {
           </Tooltip>
 
           <Tooltip>
-            <TooltipTrigger asChild>
+            <TooltipTrigger >
               <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
                 <ImageIcon className="h-4 w-4" />
               </Button>
@@ -80,7 +80,7 @@ export function ChatInput({ onSendMessage }: ChatInputProps) {
 
           {/* Emoji Button */}
           <Tooltip>
-            <TooltipTrigger asChild>
+            <TooltipTrigger >
               <Button variant="ghost" size="sm" className="absolute right-2 top-2 h-6 w-6 p-0">
                 <Smile className="h-4 w-4" />
               </Button>

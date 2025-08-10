@@ -158,7 +158,7 @@ export default function DashboardPage() {
                 <CardTitle>Recent Submissions</CardTitle>
                 <CardDescription>Latest comic submissions awaiting review</CardDescription>
               </div>
-              <Button variant="outline" size="sm" asChild>
+              <Button variant="outline" size="sm" >
                 <Link href="/dashboard/comics">
                   View All
                   <ArrowUpRight className="ml-2 h-4 w-4" />
@@ -201,7 +201,7 @@ export default function DashboardPage() {
                 <CardTitle>Top Performing Comics</CardTitle>
                 <CardDescription>Most popular comics this month</CardDescription>
               </div>
-              <Button variant="outline" size="sm" asChild>
+              <Button variant="outline" size="sm" >
                 <Link href="/dashboard/analytics">
                   View Analytics
                   <ArrowUpRight className="ml-2 h-4 w-4" />
@@ -250,19 +250,19 @@ export default function DashboardPage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button variant="outline" className="h-20 flex-col space-y-2 bg-transparent" asChild>
+            <Button variant="outline" className="h-20 flex-col space-y-2 bg-transparent" >
               <Link href="/dashboard/comics">
                 <BookOpen className="h-6 w-6" />
                 <span>Manage Comics</span>
               </Link>
             </Button>
-            <Button variant="outline" className="h-20 flex-col space-y-2 bg-transparent" asChild>
+            <Button variant="outline" className="h-20 flex-col space-y-2 bg-transparent" >
               <Link href="/dashboard/users">
                 <Users className="h-6 w-6" />
                 <span>User Management</span>
               </Link>
             </Button>
-            <Button variant="outline" className="h-20 flex-col space-y-2 bg-transparent" asChild>
+            <Button variant="outline" className="h-20 flex-col space-y-2 bg-transparent" >
               <Link href="/dashboard/settings">
                 <Settings className="h-6 w-6" />
                 <span>System Settings</span>

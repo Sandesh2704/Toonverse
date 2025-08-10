@@ -151,7 +151,7 @@ export default function GroupsPage() {
           <h1 className="text-3xl font-bold">Community Groups</h1>
           <p className="text-muted-foreground">Join groups to connect with like-minded creators and collaborate</p>
         </div>
-        <Button asChild>
+        <Button >
           <Link href="/community/groups/create">
             <Plus className="mr-2 h-4 w-4" />
             Create Group
@@ -274,7 +274,7 @@ export default function GroupsPage() {
                     </div>
                   </CardContent>
                   <div className="p-4 pt-0">
-                    <Button className="w-full" variant={group.isJoined ? "outline" : "default"} asChild>
+                    <Button className="w-full" variant={group.isJoined ? "outline" : "default"} >
                       <Link href={`/community/groups/${group.id}`}>{group.isJoined ? "View Group" : "Join Group"}</Link>
                     </Button>
                   </div>
@@ -291,7 +291,7 @@ export default function GroupsPage() {
                 <Users className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
                 <h3 className="text-lg font-medium mb-2">No groups joined yet</h3>
                 <p className="text-muted-foreground mb-4">Join groups to connect with other creators and collaborate</p>
-                <Button asChild>
+                <Button >
                   <Link href="/community/groups">Browse Groups</Link>
                 </Button>
               </CardContent>
@@ -345,7 +345,7 @@ export default function GroupsPage() {
                       </div>
                     </CardContent>
                     <div className="p-4 pt-0">
-                      <Button className="w-full" asChild>
+                      <Button className="w-full" >
                         <Link href={`/community/groups/${group.id}`}>View Group</Link>
                       </Button>
                     </div>
@@ -410,7 +410,7 @@ export default function GroupsPage() {
                     </div>
                   </CardContent>
                   <div className="p-4 pt-0">
-                    <Button className="w-full" variant={group.isJoined ? "outline" : "default"} asChild>
+                    <Button className="w-full" variant={group.isJoined ? "outline" : "default"} >
                       <Link href={`/community/groups/${group.id}`}>{group.isJoined ? "View Group" : "Join Group"}</Link>
                     </Button>
                   </div>

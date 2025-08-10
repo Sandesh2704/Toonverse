@@ -34,13 +34,8 @@ export function WriterHero({ writer }: WriterHeroProps) {
   }
 
   return (
-    <section className="relative bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100&text=Pattern')] bg-repeat"></div>
-      </div>
-
-      <div className="relative container py-16">
+  
+      <div className="relative container">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           {/* Writer Avatar and Basic Info */}
           <motion.div
@@ -99,33 +94,31 @@ export function WriterHero({ writer }: WriterHeroProps) {
                 <h3 className="font-medium mb-3">Connect</h3>
                 <div className="flex flex-wrap gap-2">
                   {writer.socialLinks.twitter && (
-                    <Button variant="outline" size="sm" asChild>
-                      <Link href={writer.socialLinks.twitter} target="_blank">
-                        <ExternalLink className="mr-2 h-4 w-4" />
+                    <Button variant="outline" size="sm" icon={<ExternalLink className=" h-4 w-4" />} >
+                      <Link href={writer.socialLinks.twitter} target="_blank" >
                         Twitter
                       </Link>
                     </Button>
                   )}
                   {writer.socialLinks.instagram && (
-                    <Button variant="outline" size="sm" asChild>
-                      <Link href={writer.socialLinks.instagram} target="_blank">
-                        <ExternalLink className="mr-2 h-4 w-4" />
+                    <Button variant="outline" size="sm" icon={<ExternalLink className=" h-4 w-4" />}>
+                      <Link href={writer.socialLinks.instagram} target="_blank" >
+        
                         Instagram
                       </Link>
                     </Button>
                   )}
                   {writer.socialLinks.youtube && (
-                    <Button variant="outline" size="sm" asChild>
+                    <Button variant="outline" size="sm" icon={<ExternalLink className=" h-4 w-4" />}>
                       <Link href={writer.socialLinks.youtube} target="_blank">
-                        <ExternalLink className="mr-2 h-4 w-4" />
+                        
                         YouTube
                       </Link>
                     </Button>
                   )}
                   {writer.socialLinks.website && (
-                    <Button variant="outline" size="sm" asChild>
+                    <Button variant="outline" size="sm" icon={<ExternalLink className=" h-4 w-4" />}>
                       <Link href={writer.socialLinks.website} target="_blank">
-                        <ExternalLink className="mr-2 h-4 w-4" />
                         Website
                       </Link>
                     </Button>
@@ -219,6 +212,5 @@ export function WriterHero({ writer }: WriterHeroProps) {
           </motion.div>
         </div>
       </div>
-    </section>
   )
 }

@@ -34,7 +34,7 @@ export default function LoginPage() {
     const result = await login(credentials)
 
     if (result.success) {
-      router.push("/dashboard")
+      router.push("/my-account")
     }
 
     setLoading(false)

@@ -170,7 +170,7 @@ export default function CollaborationsPage() {
             Find partners for your creative projects and join exciting collaborations
           </p>
         </div>
-        <Button asChild>
+        <Button>
           <Link href="/community/collaborations/create">
             <Plus className="mr-2 h-4 w-4" />
             Post Collaboration
@@ -338,7 +338,7 @@ export default function CollaborationsPage() {
                 <p className="text-muted-foreground mb-4">
                   Join collaborations to work with other creators on exciting projects
                 </p>
-                <Button asChild>
+                <Button >
                   <Link href="/community/collaborations">Browse Collaborations</Link>
                 </Button>
               </CardContent>

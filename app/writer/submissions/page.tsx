@@ -172,7 +172,7 @@ export default function SubmissionsPage() {
                       className="hidden"
                       id="pages-upload"
                     />
-                    <Button variant="outline" asChild>
+                    <Button variant="outline" >
                       <label htmlFor="pages-upload" className="cursor-pointer">
                         Choose Files
                       </label>
@@ -261,7 +261,7 @@ export default function SubmissionsPage() {
               <p className="text-muted-foreground text-center mb-4">
                 To create a new comic series, use the dedicated comic creation workflow
               </p>
-              <Button asChild>
+              <Button >
                 <a href="/writer/create">
                   <Plus className="mr-2 h-4 w-4" />
                   Create New Comic

@@ -87,7 +87,7 @@ export default function CommunityPage() {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Button asChild className="h-auto p-4">
+        <Button className="h-auto p-4">
           <Link href="/community/chat">
             <div className="text-center">
               <MessageSquare className="h-6 w-6 mx-auto mb-2" />
@@ -96,7 +96,7 @@ export default function CommunityPage() {
             </div>
           </Link>
         </Button>
-        <Button variant="outline" asChild className="h-auto p-4 bg-transparent">
+        <Button variant="outline"  className="h-auto p-4 bg-transparent">
           <Link href="/community/forums">
             <div className="text-center">
               <MessageSquare className="h-6 w-6 mx-auto mb-2" />
@@ -105,7 +105,7 @@ export default function CommunityPage() {
             </div>
           </Link>
         </Button>
-        <Button variant="outline" asChild className="h-auto p-4 bg-transparent">
+        <Button variant="outline"  className="h-auto p-4 bg-transparent">
           <Link href="/community/groups">
             <div className="text-center">
               <Users className="h-6 w-6 mx-auto mb-2" />
@@ -114,7 +114,7 @@ export default function CommunityPage() {
             </div>
           </Link>
         </Button>
-        <Button variant="outline" asChild className="h-auto p-4 bg-transparent">
+        <Button variant="outline" className="h-auto p-4 bg-transparent">
           <Link href="/community/events">
             <div className="text-center">
               <Calendar className="h-6 w-6 mx-auto mb-2" />
@@ -134,7 +134,7 @@ export default function CommunityPage() {
               <CardTitle>Active Chats</CardTitle>
               <CardDescription>Join the conversation</CardDescription>
             </div>
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm">
               <Link href="/community/chat">
                 <Search className="h-4 w-4 mr-2" />
                 Search Messages
@@ -164,7 +164,7 @@ export default function CommunityPage() {
                       {room.unreadCount}
                     </Badge>
                   )}
-                  <Button variant="ghost" size="sm" asChild>
+                  <Button variant="ghost" size="sm">
                     <Link href="/community/chat">Join</Link>
                   </Button>
                 </div>

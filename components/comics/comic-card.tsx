@@ -45,7 +45,7 @@ export function ComicCard({
 
   if (compact) {
     return (
-      <Card className="comic-card group overflow-hidden">
+      <Card className="comic-card group overflow-hidden py-0 gap-0">
         <Link href={`/comics/${comic.id}`}>
           <div className="flex space-x-3 p-3">
             <div className="relative flex-shrink-0">
@@ -88,16 +88,15 @@ export function ComicCard({
   }
 
   return (
-    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
-      <Card className="comic-card group overflow-hidden h-full">
+      <Card className="comic-card  group overflow-hidden h-fit py-0 gap-0">
         <div className="relative">
           <Link href={`/comics/${comic.id}`}>
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative aspect-[1/1] overflow-hidden">
               <Image
-                src={comic.thumbnail || "/placeholder.svg"}
+                src={"/default-image/comic2.jpg"}
                 alt={comic.title}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover    transition-transform duration-300 group-hover:scale-105"
               />
 
               {/* Overlay on hover */}
@@ -144,8 +143,8 @@ export function ComicCard({
           </Link>
         </div>
 
-        <CardContent className="p-4">
-          <div className="space-y-3">
+        <CardContent className="px-4 py-6  h-fit flex flex-col gap-3">
+     
             {/* Title and Author */}
             <div>
               <Link href={`/comics/${comic.id}`}>
@@ -157,7 +156,9 @@ export function ComicCard({
             </div>
 
             {/* Description */}
-            <p className="text-sm text-muted-foreground line-clamp-2">{comic.description}</p>
+            <p className="text-sm h-10 text-muted-foreground line-clamp-2">{comic.description}</p>
+
+
 
             {/* Stats */}
             <div className="flex items-center justify-between text-sm">
@@ -190,9 +191,7 @@ export function ComicCard({
                 </Badge>
               )}
             </div>
-          </div>
         </CardContent>
       </Card>
-    </motion.div>
   )
 }

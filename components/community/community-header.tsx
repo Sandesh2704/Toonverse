@@ -25,7 +25,7 @@ import {
 
 export function CommunityHeader() {
   return (
-    <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+    <header className="flex h-16 shrink-0 top-0 bg-white  sticky  items-center gap-2 border-b px-4">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4" />
       <Breadcrumb>
@@ -47,7 +47,7 @@ export function CommunityHeader() {
         </div>
 
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger >
             <Button variant="outline" size="sm">
               <Plus className="h-4 w-4 mr-2" />
               Create
@@ -64,7 +64,7 @@ export function CommunityHeader() {
         </DropdownMenu>
 
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger >
             <Button variant="outline" size="icon" className="relative bg-transparent">
               <Bell className="h-4 w-4" />
               <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs">3</Badge>

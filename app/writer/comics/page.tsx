@@ -104,7 +104,7 @@ export default function WriterComicsPage() {
           <h1 className="text-3xl font-bold">My Comics</h1>
           <p className="text-muted-foreground">Manage your comic series and episodes</p>
         </div>
-        <Button asChild>
+        <Button >
           <Link href="/writer/create">
             <Plus className="mr-2 h-4 w-4" />
             Create New Comic
@@ -212,20 +212,20 @@ export default function WriterComicsPage() {
                 </div>
                 <div className="absolute top-2 right-2">
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+                    <DropdownMenuTrigger >
                       <Button variant="ghost" size="icon" className="bg-black/50 hover:bg-black/70 text-white">
                         <MoreHorizontal className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem asChild>
+                      <DropdownMenuItem >
                         <Link href={`/writer/comics/${comic.id}`}>
                           <Edit className="mr-2 h-4 w-4" />
                           Edit
                         </Link>
                       </DropdownMenuItem>
                       {comic.status === "published" && (
-                        <DropdownMenuItem asChild>
+                        <DropdownMenuItem >
                           <Link href={`/comics/${comic.id}`}>
                             <Eye className="mr-2 h-4 w-4" />
                             View Public
@@ -278,14 +278,14 @@ export default function WriterComicsPage() {
                   )}
 
                   <div className="flex space-x-2">
-                    <Button size="sm" className="flex-1" asChild>
+                    <Button size="sm" className="flex-1" >
                       <Link href={`/writer/comics/${comic.id}`}>
                         <Edit className="mr-2 h-4 w-4" />
                         Manage
                       </Link>
                     </Button>
                     {comic.status === "published" && (
-                      <Button size="sm" variant="outline" asChild>
+                      <Button size="sm" variant="outline" >
                         <Link href={`/comics/${comic.id}`}>
                           <Eye className="mr-2 h-4 w-4" />
                           View
@@ -310,7 +310,7 @@ export default function WriterComicsPage() {
                 ? "Try adjusting your search or filters"
                 : "You haven't created any comics yet"}
             </p>
-            <Button asChild>
+            <Button >
               <Link href="/writer/create">
                 <Plus className="mr-2 h-4 w-4" />
                 Create Your First Comic

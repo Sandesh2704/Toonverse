@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, CheckCircle } from "lucide-react"
 import { toast } from "sonner"
+import Section from "../shared/section"
 
 export function NewsletterSection() {
   const [email, setEmail] = useState("")
@@ -27,7 +28,7 @@ export function NewsletterSection() {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent">
+    <Section variant="gradient" className="py-16 ">
       <div className="container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <Card className="max-w-2xl mx-auto">
@@ -70,6 +71,6 @@ export function NewsletterSection() {
           </Card>
         </motion.div>
       </div>
-    </section>
+    </Section>
   )
 }

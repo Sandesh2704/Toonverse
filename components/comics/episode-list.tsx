@@ -69,7 +69,7 @@ export function EpisodeList({ episodes, comicId }: EpisodeListProps) {
 
               {/* Sort */}
               <DropdownMenu>
-                <DropdownMenuTrigger asChild>
+                <DropdownMenuTrigger >
                   <Button variant="outline" size="sm">
                     <Calendar className="mr-2 h-4 w-4" />
                     Sort

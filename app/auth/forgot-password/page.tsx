@@ -89,7 +89,7 @@ export default function ForgotPasswordPage() {
                     Try Different Email
                   </Button>
 
-                  <Button variant="ghost" asChild>
+                  <Button variant="ghost" >
                     <Link href="/auth/login">
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Back to Login
@@ -164,7 +164,7 @@ export default function ForgotPasswordPage() {
             </form>
 
             <div className="text-center">
-              <Button variant="ghost" asChild>
+              <Button variant="ghost" >
                 <Link href="/auth/login">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Login

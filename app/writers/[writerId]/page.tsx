@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import { motion } from "framer-motion"
-import { Navbar } from "@/components/shared/navbar"
-import { Footer } from "@/components/shared/footer"
 import { WriterHero } from "@/components/writer/writer-hero"
 import { WriterInfo } from "@/components/writer/writer-info"
 import { WriterComics } from "@/components/writer/writer-comics"
@@ -14,6 +12,7 @@ import { dummyComics } from "@/data/comics"
 import { dummyWriters } from "@/data/writers"
 import type { Writer } from "@/types/user"
 import type { Comic } from "@/types/comic"
+import Section from "@/components/shared/section"
 
 export default function WriterProfilePage() {
   const params = useParams()
@@ -45,14 +44,13 @@ export default function WriterProfilePage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Navbar />
+      
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
             <p className="text-muted-foreground">Loading writer profile...</p>
           </div>
         </div>
-        <Footer />
       </div>
     )
   }
@@ -60,21 +58,20 @@ export default function WriterProfilePage() {
   if (!writer) {
     return (
       <div className="min-h-screen bg-background">
-        <Navbar />
+     
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-2">Writer Not Found</h1>
             <p className="text-muted-foreground">The writer you're looking for doesn't exist.</p>
           </div>
         </div>
-        <Footer />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <Section className="py-16">
+    
 
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         <WriterHero writer={writer} />
@@ -96,7 +93,6 @@ export default function WriterProfilePage() {
         </div>
       </motion.main>
 
-      <Footer />
-    </div>
+    </Section>
   )
 }

@@ -177,7 +177,7 @@ export default function CategoriesPage() {
           <p className="text-muted-foreground">Manage comic categories and organize your content</p>
         </div>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogTrigger asChild>
+          <DialogTrigger >
             <Button onClick={resetForm}>
               <Plus className="h-4 w-4 mr-2" />
               Add Category
@@ -354,7 +354,7 @@ export default function CategoriesPage() {
                       <Edit className="h-4 w-4" />
                     </Button>
                     <AlertDialog>
-                      <AlertDialogTrigger asChild>
+                      <AlertDialogTrigger >
                         <Button variant="outline" size="sm">
                           <Trash2 className="h-4 w-4" />
                         </Button>

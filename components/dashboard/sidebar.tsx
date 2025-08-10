@@ -1,6 +1,8 @@
 import type React from "react"
 import { Home, BookOpen, BarChart, Settings, Grid3X3 } from "lucide-react"
-import SidebarItem from "./SidebarItem"
+import { SidebarItem } from "./sidebarItem"
+
+
 
 const Sidebar: React.FC = () => {
   const items = [

@@ -189,7 +189,7 @@ export default function SettingsPage() {
                       Upload a new profile picture. Recommended size: 400x400px
                     </p>
                     <div className="flex space-x-2">
-                      <Button variant="outline" size="sm" asChild>
+                      <Button variant="outline" size="sm" >
                         <label htmlFor="avatar-upload" className="cursor-pointer">
                           Upload New
                         </label>

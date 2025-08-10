@@ -152,7 +152,7 @@ export function ReaderControls({
           <div className="flex items-center space-x-2">
             {/* Reading Mode Selector */}
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger >
                 <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                   {getReadingModeIcon(readingMode)}
                   <span className="hidden sm:inline ml-2">{getReadingModeLabel(readingMode)}</span>

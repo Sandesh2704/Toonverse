@@ -23,12 +23,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
 
   useEffect(() => {
-    // Check for stored auth token and validate
     const checkAuth = async () => {
       try {
         const token = localStorage.getItem("auth_token")
         if (token) {
-          // Simulate API call to validate token
           const mockUser: User = {
             id: "1",
             name: "John Doe",
@@ -55,11 +53,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (credentials: LoginCredentials): Promise<AuthResponse> => {
     try {
       setLoading(true)
-
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // Mock successful login
       const mockUser: User = {
         id: "1",
         name: "John Doe",
@@ -70,11 +64,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       }
-
       const token = "mock_jwt_token_" + Date.now()
       localStorage.setItem("auth_token", token)
       setUser(mockUser)
-
       toast.success("Login successful!")
       return { success: true, message: "Login successful", user: mockUser, token }
     } catch (error) {
@@ -89,11 +81,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const register = async (data: RegisterData): Promise<AuthResponse> => {
     try {
       setLoading(true)
-
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // Mock successful registration
       const mockUser: User = {
         id: "2",
         name: data.name,
@@ -104,11 +92,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       }
-
       const token = "mock_jwt_token_" + Date.now()
       localStorage.setItem("auth_token", token)
       setUser(mockUser)
-
       toast.success("Registration successful!")
       return { success: true, message: "Registration successful", user: mockUser, token }
     } catch (error) {
@@ -133,8 +119,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  const value = {
+    user,
+    loading,
+    login,
+    register,
+    logout,
+    updateUser
+  }
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, updateUser }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   )

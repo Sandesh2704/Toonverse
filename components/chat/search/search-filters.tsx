@@ -158,7 +158,7 @@ export function SearchFilters() {
           <div className="space-y-2">
             <div className="flex gap-2">
               <Popover>
-                <PopoverTrigger asChild>
+                <PopoverTrigger >
                   <Button variant="outline" size="sm" className="justify-start text-left font-normal bg-transparent">
                     <CalendarIcon className="mr-2 h-4 w-4" />
                     {filters.dateRange.from ? format(filters.dateRange.from, "PPP") : "From date"}
@@ -176,7 +176,7 @@ export function SearchFilters() {
             </div>
             <div className="flex gap-2">
               <Popover>
-                <PopoverTrigger asChild>
+                <PopoverTrigger >
                   <Button variant="outline" size="sm" className="justify-start text-left font-normal bg-transparent">
                     <CalendarIcon className="mr-2 h-4 w-4" />
                     {filters.dateRange.to ? format(filters.dateRange.to, "PPP") : "To date"}

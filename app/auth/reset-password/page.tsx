@@ -117,7 +117,7 @@ export default function ResetPasswordPage() {
                 Your password has been updated. You can now log in with your new password.
               </p>
 
-              <Button asChild className="w-full">
+              <Button  className="w-full">
                 <Link href="/auth/login">Continue to Login</Link>
               </Button>
             </CardContent>
@@ -159,7 +159,7 @@ export default function ResetPasswordPage() {
                 <p className="text-sm text-red-600 mt-1">
                   This reset link is invalid or has expired. Please request a new one.
                 </p>
-                <Button variant="outline" size="sm" className="mt-3 bg-transparent" asChild>
+                <Button variant="outline" size="sm" className="mt-3 bg-transparent" >
                   <Link href="/auth/forgot-password">Request New Link</Link>
                 </Button>
               </div>
@@ -286,7 +286,7 @@ export default function ResetPasswordPage() {
             </form>
 
             <div className="text-center">
-              <Button variant="ghost" asChild>
+              <Button variant="ghost" >
                 <Link href="/auth/login">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Login

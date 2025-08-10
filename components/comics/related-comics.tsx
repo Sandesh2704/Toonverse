@@ -40,7 +40,7 @@ export function RelatedComics({ currentComicId, category }: RelatedComicsProps) 
               {relatedComics.map((comic) => (
                 <ComicCard key={comic.id} comic={comic} compact />
               ))}
-              <Button variant="outline" className="w-full bg-transparent" asChild>
+              <Button variant="outline" className="w-full bg-transparent" >
                 <Link href={`/comics/categories/${category.toLowerCase()}`}>
                   View All {category} Comics
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -68,7 +68,7 @@ export function RelatedComics({ currentComicId, category }: RelatedComicsProps) 
             {recommendedComics.map((comic) => (
               <ComicCard key={comic.id} comic={comic} compact />
             ))}
-            <Button variant="outline" className="w-full bg-transparent" asChild>
+            <Button variant="outline" className="w-full bg-transparent" >
               <Link href="/comics">
                 Discover More Comics
                 <ArrowRight className="ml-2 h-4 w-4" />

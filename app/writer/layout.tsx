@@ -20,29 +20,29 @@ export default function WriterLayout({
   const router = useRouter()
   const { user } = useSelector((state: RootState) => state.user)
 
-  useEffect(() => {
-    // Check if user has writer access
-    if (!user || !["writer", "admin", "super_admin"].includes(user.role)) {
-      router.push("/auth/become-writer")
-    }
-  }, [user, router])
+  // useEffect(() => {
+  //   // Check if user has writer access
+  //   if (!user || !["writer", "admin", "super_admin"].includes(user.role)) {
+  //     router.push("/auth/become-writer")
+  //   }
+  // }, [user, router])
 
-  if (!user || !["writer", "admin", "super_admin"].includes(user.role)) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-2">Writer Access Required</h1>
-          <p className="text-muted-foreground mb-4">You need to be a verified writer to access this area.</p>
-          <button
-            onClick={() => router.push("/auth/become-writer")}
-            className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
-          >
-            Become a Writer
-          </button>
-        </div>
-      </div>
-    )
-  }
+  // if (!user || !["writer", "admin", "super_admin"].includes(user.role)) {
+  //   return (
+  //     <div className="flex items-center justify-center min-h-screen">
+  //       <div className="text-center">
+  //         <h1 className="text-2xl font-bold mb-2">Writer Access Required</h1>
+  //         <p className="text-muted-foreground mb-4">You need to be a verified writer to access this area.</p>
+  //         <button
+  //           onClick={() => router.push("/auth/become-writer")}
+  //           className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
+  //         >
+  //           Become a Writer
+  //         </button>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <SidebarProvider>

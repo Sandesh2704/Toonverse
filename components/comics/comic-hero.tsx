@@ -10,6 +10,7 @@ import { Play, Heart, Bookmark, Share2, Star, Eye, Clock, Users, BookOpen } from
 import type { Comic } from "@/types/comic"
 import { toast } from "sonner"
 import Link from "next/link"
+import Section from "../shared/section"
 
 interface ComicHeroProps {
   comic: Comic
@@ -41,7 +42,7 @@ export function ComicHero({ comic }: ComicHeroProps) {
   }
 
   return (
-    <section className="relative min-h-[60vh] overflow-hidden">
+    <div className="relative min-h-[60vh] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image src={comic.banner || comic.thumbnail} alt={comic.title} fill className="object-cover" priority />
@@ -50,7 +51,7 @@ export function ComicHero({ comic }: ComicHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container py-12">
+      <Section variant="transparent" className="relative z-10 bg-transparent container py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-end">
           {/* Comic Cover */}
           <motion.div
@@ -63,7 +64,7 @@ export function ComicHero({ comic }: ComicHeroProps) {
               <Image
                 src={comic.thumbnail || "/placeholder.svg"}
                 alt={comic.title}
-                width={300}
+                width={400}
                 height={400}
                 className="rounded-lg shadow-2xl"
               />
@@ -110,9 +111,10 @@ export function ComicHero({ comic }: ComicHeroProps) {
                 variant={isFollowing ? "secondary" : "outline"}
                 size="sm"
                 onClick={handleFollow}
-                className={isFollowing ? "" : "text-white border-white/50 hover:bg-white hover:text-black"}
+                icon={<Users className="h-4 w-4" />}
+                className={isFollowing ? "" : "text-black"}
               >
-                <Users className="mr-2 h-4 w-4" />
+                
                 {isFollowing ? "Following" : "Follow"}
               </Button>
             </div>
@@ -156,9 +158,9 @@ export function ComicHero({ comic }: ComicHeroProps) {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+              <Button size="lg" icon={<Play className=" h-5 w-5" />}  className="bg-primary hover:bg-primary/90" >
                 <Link href={`/episodes/ep${comic.id}-1`}>
-                  <Play className="mr-2 h-5 w-5" />
+                  
                   Start Reading
                 </Link>
               </Button>
@@ -167,11 +169,11 @@ export function ComicHero({ comic }: ComicHeroProps) {
                 size="lg"
                 variant="outline"
                 onClick={handleLike}
-                className={`text-white border-white/50 hover:bg-white hover:text-black ${
+                icon={<Heart className={` h-5 w-5 ${isLiked ? "fill-current" : ""}`}  />}
+                className={`text-black ${
                   isLiked ? "bg-red-500 border-red-500 hover:bg-red-600" : ""
                 }`}
               >
-                <Heart className={`mr-2 h-5 w-5 ${isLiked ? "fill-current" : ""}`} />
                 {isLiked ? "Liked" : "Like"}
               </Button>
 
@@ -179,11 +181,11 @@ export function ComicHero({ comic }: ComicHeroProps) {
                 size="lg"
                 variant="outline"
                 onClick={handleBookmark}
-                className={`text-white border-white/50 hover:bg-white hover:text-black ${
+                icon={<Bookmark className={`h-5 w-5 ${isBookmarked ? "fill-current" : ""}`} />}  
+                className={`text-black ${
                   isBookmarked ? "bg-blue-500 border-blue-500 hover:bg-blue-600" : ""
                 }`}
               >
-                <Bookmark className={`mr-2 h-5 w-5 ${isBookmarked ? "fill-current" : ""}`} />
                 {isBookmarked ? "Saved" : "Save"}
               </Button>
 
@@ -191,15 +193,15 @@ export function ComicHero({ comic }: ComicHeroProps) {
                 size="lg"
                 variant="outline"
                 onClick={handleShare}
+                icon={<Share2 className=" h-5 w-5" />}
                 className="text-white border-white/50 hover:bg-white hover:text-black bg-transparent"
               >
-                <Share2 className="mr-2 h-5 w-5" />
                 Share
               </Button>
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </Section>
+    </div>
   )
 }

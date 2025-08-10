@@ -247,7 +247,7 @@ export default function CreateComicPage() {
                           className="hidden"
                           id="thumbnail-upload"
                         />
-                        <Button variant="outline" size="sm" asChild>
+                        <Button variant="outline" size="sm" >
                           <label htmlFor="thumbnail-upload" className="cursor-pointer">
                             Choose File
                           </label>
@@ -289,7 +289,7 @@ export default function CreateComicPage() {
                           className="hidden"
                           id="banner-upload"
                         />
-                        <Button variant="outline" size="sm" asChild>
+                        <Button variant="outline" size="sm" >
                           <label htmlFor="banner-upload" className="cursor-pointer">
                             Choose File
                           </label>

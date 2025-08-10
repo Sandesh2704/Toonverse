@@ -175,7 +175,7 @@ export default function EventsPage() {
           <h1 className="text-3xl font-bold">Community Events</h1>
           <p className="text-muted-foreground">Join workshops, networking sessions, and collaborative events</p>
         </div>
-        <Button asChild>
+        <Button >
           <Link href="/community/events/create">
             <Plus className="mr-2 h-4 w-4" />
             Create Event
@@ -322,7 +322,7 @@ export default function EventsPage() {
                 <p className="text-muted-foreground mb-4">
                   Join events to connect with other creators and learn new skills
                 </p>
-                <Button asChild>
+                <Button >
                   <Link href="/community/events">Browse Events</Link>
                 </Button>
               </CardContent>
