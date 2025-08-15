@@ -192,7 +192,7 @@ export default function ComicsPage() {
                   <TableCell>
                     <div className="flex items-center gap-3">
                       <Image
-                        src={comic.thumbnail || "/placeholder.svg"}
+                        src={comic.thumbnail || "/default-image/comic2.jpg"}
                         alt={comic.title}
                         width={40}
                         height={60}
@@ -207,7 +207,7 @@ export default function ComicsPage() {
                   <TableCell>
                     <div className="flex items-center gap-2">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={`/placeholder.svg?height=32&width=32&text=${comic.author.charAt(0)}`} />
+                        <AvatarImage src={`/default-image/comic2.jpg?height=32&width=32&text=${comic.author.charAt(0)}`} />
                         <AvatarFallback>{comic.author.charAt(0)}</AvatarFallback>
                       </Avatar>
                       {comic.author}

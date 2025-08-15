@@ -66,7 +66,7 @@ export function ChatSidebar() {
                   <div className="flex items-center gap-3 w-full">
                     <div className="relative">
                       <Avatar className="h-10 w-10">
-                        <AvatarImage src={room.avatar || "/placeholder.svg"} />
+                        <AvatarImage src={room.avatar || "/default-image/comic2.jpg"} />
                         <AvatarFallback>
                           <Hash className="h-4 w-4" />
                         </AvatarFallback>
@@ -120,7 +120,7 @@ export function ChatSidebar() {
                     <div className="flex items-center gap-3 w-full">
                       <div className="relative">
                         <Avatar className="h-10 w-10">
-                          <AvatarImage src={room.avatar || "/placeholder.svg"} />
+                          <AvatarImage src={room.avatar || "/default-image/comic2.jpg"} />
                           <AvatarFallback>{room.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                         {room.isOnline && (

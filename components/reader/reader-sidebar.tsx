@@ -48,7 +48,7 @@ export function ReaderSidebar({ comic, episode, currentPage, onPageSelect, onClo
                 className="flex items-center space-x-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               >
                 <Image
-                  src={comic.thumbnail || "/placeholder.svg"}
+                  src={comic.thumbnail || "/default-image/comic2.jpg"}
                   alt={comic.title}
                   width={48}
                   height={64}
@@ -81,7 +81,7 @@ export function ReaderSidebar({ comic, episode, currentPage, onPageSelect, onClo
                       index === currentPage ? "border-primary" : "border-white/20 hover:border-white/40"
                     }`}
                   >
-                    <Image src={page || "/placeholder.svg"} alt={`Page ${index + 1}`} fill className="object-cover" />
+                    <Image src={page || "/default-image/comic2.jpg"} alt={`Page ${index + 1}`} fill className="object-cover" />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                       <span className="text-white text-xs font-medium">{index + 1}</span>
                     </div>
@@ -104,7 +104,7 @@ export function ReaderSidebar({ comic, episode, currentPage, onPageSelect, onClo
                     }`}
                   >
                     <Image
-                      src={ep.thumbnail || "/placeholder.svg"}
+                      src={ep.thumbnail || "/default-image/comic2.jpg"}
                       alt={ep.title}
                       width={40}
                       height={60}

@@ -46,7 +46,7 @@ export function WriterHero({ writer }: WriterHeroProps) {
           >
             <div className="relative mb-6">
               <Avatar className="h-32 w-32 border-4 border-white shadow-xl">
-                <AvatarImage src={writer.avatar || "/placeholder.svg"} alt={writer.name} />
+                <AvatarImage src={writer.avatar || "/default-image/comic2.jpg"} alt={writer.name} />
                 <AvatarFallback className="text-2xl">{writer.name.charAt(0)}</AvatarFallback>
               </Avatar>
               {writer.isVerified && (

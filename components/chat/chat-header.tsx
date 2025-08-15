@@ -27,7 +27,7 @@ export function ChatHeader({ room }: ChatHeaderProps) {
     <div className="flex items-center justify-between p-4">
       <div className="flex items-center gap-3">
         <Avatar className="h-10 w-10">
-          <AvatarImage src={room.avatar || "/placeholder.svg"} />
+          <AvatarImage src={room.avatar || "/default-image/comic2.jpg"} />
           <AvatarFallback>
             {room.type === "group" ? <Hash className="h-4 w-4" /> : <User className="h-4 w-4" />}
           </AvatarFallback>

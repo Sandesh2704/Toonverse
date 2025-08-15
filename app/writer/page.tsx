@@ -53,7 +53,7 @@ const recentComics = [
     views: 125000,
     rating: 4.8,
     lastUpdated: "2 days ago",
-    thumbnail: "/placeholder.svg?height=80&width=60&text=Comic+1",
+    thumbnail: "/default-image/comic2.jpg?height=80&width=60&text=Comic+1",
   },
   {
     id: "2",
@@ -63,7 +63,7 @@ const recentComics = [
     views: 0,
     rating: 0,
     lastUpdated: "1 week ago",
-    thumbnail: "/placeholder.svg?height=80&width=60&text=Comic+2",
+    thumbnail: "/default-image/comic2.jpg?height=80&width=60&text=Comic+2",
   },
   {
     id: "3",
@@ -73,7 +73,7 @@ const recentComics = [
     views: 0,
     rating: 0,
     lastUpdated: "3 days ago",
-    thumbnail: "/placeholder.svg?height=80&width=60&text=Comic+3",
+    thumbnail: "/default-image/comic2.jpg?height=80&width=60&text=Comic+3",
   },
 ]
 
@@ -202,7 +202,7 @@ export default function WriterDashboard() {
             {recentComics.map((comic) => (
               <div key={comic.id} className="flex items-center space-x-4 p-4 border rounded-lg hover:bg-muted/50">
                 <img
-                  src={comic.thumbnail || "/placeholder.svg"}
+                  src={comic.thumbnail || "/default-image/comic2.jpg"}
                   alt={comic.title}
                   className="w-16 h-20 object-cover rounded"
                 />

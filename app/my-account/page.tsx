@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Heart, Bookmark, Users, Settings, Edit, BarChart } from "lucide-react"
 import { useAuth } from "@/hooks/useAuth"
-import { ComicCard } from "@/components/comics/comic-card"
 import { dummyComics } from "@/data/comics"
 import { dummyWriters } from "@/data/writers"
 import type { UserFollow, UserLike, UserSave } from "@/types/auth"
@@ -18,7 +17,6 @@ import Section from "@/components/shared/section"
 import Liked from "@/components/my-account/liked"
 import Following from "@/components/my-account/following"
 import Saved from "@/components/my-account/saved"
-import Channel from "@/components/my-account/channel"
 
 
 
@@ -31,7 +29,7 @@ export default function MyAccountPage() {
 
   useEffect(() => {
     const fetchUserData = async () => {
-   
+
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
       // Mock followed writers
@@ -60,7 +58,7 @@ export default function MyAccountPage() {
         comic,
         savedAt: new Date(Date.now() - Math.random() * 20 * 24 * 60 * 60 * 1000).toISOString(),
       }))
-  
+
 
       setFollowedWriters(mockFollows)
       setLikedComics(mockLikes)
@@ -99,7 +97,7 @@ export default function MyAccountPage() {
             <CardContent className="pt-6">
               <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
                 <Avatar className="h-24 w-24">
-                  <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
+                  <AvatarImage src={user.avatar || "/default-image/comic2.jpg"} alt={user.name} />
                   <AvatarFallback className="text-2xl">
                     {user.name
                       .split(" ")
@@ -137,7 +135,7 @@ export default function MyAccountPage() {
 
           {/* Account Tabs */}
           <Tabs defaultValue="following" className="space-y-6">
-            <TabsList className="grid w-full h-12 grid-cols-4">
+            <TabsList className="grid w-full h-12 grid-cols-3">
               <TabsTrigger value="following" className="flex items-center cursor-pointer space-x-2">
                 <Users className="h-4 w-4" />
                 <span>Following ({followedWriters.length})</span>
@@ -150,31 +148,25 @@ export default function MyAccountPage() {
                 <Bookmark className="h-4 w-4" />
                 <span>Saved ({savedComics.length})</span>
               </TabsTrigger>
-              <TabsTrigger value="channel" className="flex items-center cursor-pointer space-x-2">
-                <Bookmark className="h-4 w-4" />
-                <span>Your Channel</span>
-              </TabsTrigger>
+
             </TabsList>
 
             {/* Following Tab */}
             <TabsContent value="following">
-            <Following/>
+              <Following />
             </TabsContent>
 
             {/* Liked Tab */}
             <TabsContent value="liked">
-             <Liked/>
+              <Liked />
             </TabsContent>
 
             {/* Saved Tab */}
             <TabsContent value="saved">
-             <Saved/>
+              <Saved />
             </TabsContent>
 
-            {/* Your Channel Tab with Sub-Tabs */}
-            <TabsContent value="channel">
-             <Channel/>
-            </TabsContent>
+
           </Tabs>
         </motion.div>
       </div>

@@ -222,7 +222,7 @@ export default function CreateComicPage() {
                     {formData.thumbnail ? (
                       <div className="space-y-2">
                         <Image
-                          src={URL.createObjectURL(formData.thumbnail) || "/placeholder.svg"}
+                          src={URL.createObjectURL(formData.thumbnail) || "/default-image/comic2.jpg"}
                           alt="Thumbnail preview"
                           width={200}
                           height={300}
@@ -264,7 +264,7 @@ export default function CreateComicPage() {
                     {formData.banner ? (
                       <div className="space-y-2">
                         <Image
-                          src={URL.createObjectURL(formData.banner) || "/placeholder.svg"}
+                          src={URL.createObjectURL(formData.banner) || "/default-image/comic2.jpg"}
                           alt="Banner preview"
                           width={300}
                           height={150}
@@ -352,7 +352,7 @@ export default function CreateComicPage() {
                         <p className="text-sm font-medium mb-2">Thumbnail</p>
                         {formData.thumbnail ? (
                           <Image
-                            src={URL.createObjectURL(formData.thumbnail) || "/placeholder.svg"}
+                            src={URL.createObjectURL(formData.thumbnail) || "/default-image/comic2.jpg"}
                             alt="Thumbnail"
                             width={100}
                             height={150}
@@ -368,7 +368,7 @@ export default function CreateComicPage() {
                         <p className="text-sm font-medium mb-2">Banner</p>
                         {formData.banner ? (
                           <Image
-                            src={URL.createObjectURL(formData.banner) || "/placeholder.svg"}
+                            src={URL.createObjectURL(formData.banner) || "/default-image/comic2.jpg"}
                             alt="Banner"
                             width={150}
                             height={75}

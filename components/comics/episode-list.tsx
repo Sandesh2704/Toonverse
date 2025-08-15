@@ -141,7 +141,7 @@ function EpisodeCardGrid({ episode }: { episode: Episode }) {
       <Link href={`/episodes/${episode.id}`}>
         <div className="relative aspect-video overflow-hidden rounded-t-lg">
           <Image
-            src={episode.thumbnail || "/placeholder.svg"}
+            src={episode.thumbnail || "/default-image/comic2.jpg"}
             alt={episode.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -182,7 +182,7 @@ function EpisodeCardList({ episode }: { episode: Episode }) {
           <div className="flex items-center space-x-4">
             <div className="relative flex-shrink-0">
               <Image
-                src={episode.thumbnail || "/placeholder.svg"}
+                src={episode.thumbnail || "/default-image/comic2.jpg"}
                 alt={episode.title}
                 width={120}
                 height={80}

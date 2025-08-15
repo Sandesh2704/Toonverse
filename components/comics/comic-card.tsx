@@ -50,9 +50,9 @@ export function ComicCard({
           <div className="flex space-x-3 p-3">
             <div className="relative flex-shrink-0">
               <Image
-                src={comic.thumbnail || "/placeholder.svg"}
+                src={comic.thumbnail || "/default-image/comic2.jpg"}
                 alt={comic.title}
-                width={60}
+                width={150}
                 height={80}
                 className="rounded object-cover"
               />

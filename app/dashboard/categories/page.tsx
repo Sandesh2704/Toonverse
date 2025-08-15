@@ -165,8 +165,8 @@ export default function CategoriesPage() {
     toast.success("Category status updated")
   }
 
-  const totalComics = categories.reduce((sum, cat) => sum + cat.comicsCount, 0)
-  const activeCategories = categories.filter((cat) => cat.isActive).length
+  const totalComics = categories.reduce((sum:any, cat:any) => sum + cat.comicsCount, 0)
+  const activeCategories = categories.filter((cat : any) => cat.isActive).length
 
   return (
     <div className="space-y-6">
@@ -211,7 +211,7 @@ export default function CategoriesPage() {
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     placeholder="Enter category description"
-                    rows={3}
+                    rows={6}
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">

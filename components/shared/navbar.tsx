@@ -94,7 +94,7 @@ export function Navbar() {
                 <DropdownMenuTrigger >
                   <Button variant="ghost" className="relative h-10  w-10 rounded-full">
                     <Avatar className="w-10 h-10 cursor-pointer bg-gradient-to-r from-purple-500 to-pink-500">
-                      <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} className="bg-gradient-to-r from-purple-500 to-pink-500" />
+                      <AvatarImage src={user.avatar || "/default-image/comic2.jpg"} alt={user.name} className="bg-gradient-to-r from-purple-500 to-pink-500" />
                       <AvatarFallback>
                         {user.name
                           .split(" ")

@@ -17,7 +17,8 @@ import Section from "@/components/shared/section"
 
 export default function ComicDetailPage() {
   const params = useParams()
-  const comicId = params.comicId as string
+const comicId = params.comicId as string
+//  const comicId =  1
   const [comic, setComic] = useState<Comic | null>(null)
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const [comments, setComments] = useState<Comment[]>([])

@@ -62,10 +62,10 @@ export function ComicHero({ comic }: ComicHeroProps) {
           >
             <div className="relative">
               <Image
-                src={comic.thumbnail || "/placeholder.svg"}
+                src={comic.thumbnail || "/default-image/comic2.jpg"}
                 alt={comic.title}
                 width={400}
-                height={400}
+                height={700}
                 className="rounded-lg shadow-2xl"
               />
               <Badge
@@ -95,7 +95,7 @@ export function ComicHero({ comic }: ComicHeroProps) {
             {/* Author */}
             <div className="flex items-center space-x-3">
               <Avatar className="h-12 w-12 border-2 border-white/20">
-                <AvatarImage src="/placeholder.svg" />
+                <AvatarImage src="/default-image/comic2.jpg" />
                 <AvatarFallback>{comic.author.charAt(0)}</AvatarFallback>
               </Avatar>
               <div>
@@ -120,7 +120,7 @@ export function ComicHero({ comic }: ComicHeroProps) {
             </div>
 
             {/* Stats */}
-            <div className="flex items-center space-x-6 text-white/90">
+            <div className="flex flex-wrap items-center gap-6 text-white/90">
               <div className="flex items-center space-x-2">
                 <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                 <span className="font-semibold text-lg">{comic.rating}</span>

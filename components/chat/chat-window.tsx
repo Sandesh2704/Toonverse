@@ -33,7 +33,7 @@ export function ChatWindow({ roomId }: ChatWindowProps) {
       content,
       senderId: "current-user",
       senderName: "You",
-      senderAvatar: "/placeholder.svg?height=32&width=32",
+      senderAvatar: "/default-image/comic2.jpg?height=32&width=32",
       timestamp: new Date(),
       type: "text" as const,
     }

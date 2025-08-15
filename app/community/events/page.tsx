@@ -35,7 +35,7 @@ const events = [
     maxAttendees: 50,
     host: {
       name: "Sarah Chen",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Professional Comic Artist",
     },
     isAttending: false,
@@ -56,7 +56,7 @@ const events = [
     maxAttendees: 30,
     host: {
       name: "Mike Rodriguez",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Community Manager",
     },
     isAttending: true,
@@ -77,7 +77,7 @@ const events = [
     maxAttendees: 25,
     host: {
       name: "Emma Wilson",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Art Director",
     },
     isAttending: false,
@@ -98,7 +98,7 @@ const events = [
     maxAttendees: 15,
     host: {
       name: "Alex Thompson",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Project Coordinator",
     },
     isAttending: false,
@@ -119,7 +119,7 @@ const events = [
     maxAttendees: 100,
     host: {
       name: "Community Team",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "InkSaga Team",
     },
     isAttending: true,
@@ -140,7 +140,7 @@ const events = [
     maxAttendees: 75,
     host: {
       name: "Jennifer Park",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Publishing Expert",
     },
     isAttending: false,
@@ -285,7 +285,7 @@ export default function EventsPage() {
 
                     <div className="flex items-center gap-2">
                       <Avatar className="h-6 w-6">
-                        <AvatarImage src={event.host.avatar || "/placeholder.svg"} alt={event.host.name} />
+                        <AvatarImage src={event.host.avatar || "/default-image/comic2.jpg"} alt={event.host.name} />
                         <AvatarFallback className="text-xs">{event.host.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="text-sm">
@@ -425,7 +425,7 @@ export default function EventsPage() {
 
                     <div className="flex items-center gap-2">
                       <Avatar className="h-6 w-6">
-                        <AvatarImage src={event.host.avatar || "/placeholder.svg"} alt={event.host.name} />
+                        <AvatarImage src={event.host.avatar || "/default-image/comic2.jpg"} alt={event.host.name} />
                         <AvatarFallback className="text-xs">{event.host.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="text-sm">

@@ -166,7 +166,7 @@ export default function SettingsPage() {
                 <div className="flex items-center space-x-6">
                   <div className="relative">
                     <Avatar className="w-24 h-24">
-                      <AvatarImage src={user?.avatar || "/placeholder.svg"} alt={user?.name} />
+                      <AvatarImage src={user?.avatar || "/default-image/comic2.jpg"} alt={user?.name} />
                       <AvatarFallback className="text-2xl">{user?.name?.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <label

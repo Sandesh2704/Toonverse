@@ -99,7 +99,7 @@ export function SearchResults() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Avatar className="h-6 w-6">
-                      <AvatarImage src={result.message.senderAvatar || "/placeholder.svg"} />
+                      <AvatarImage src={result.message.senderAvatar || "/default-image/comic2.jpg"} />
                       <AvatarFallback>
                         {result.roomType === "group" ? <Hash className="h-3 w-3" /> : <User className="h-3 w-3" />}
                       </AvatarFallback>
@@ -118,7 +118,7 @@ export function SearchResults() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <Avatar className="h-5 w-5">
-                      <AvatarImage src={result.message.senderAvatar || "/placeholder.svg"} />
+                      <AvatarImage src={result.message.senderAvatar || "/default-image/comic2.jpg"} />
                       <AvatarFallback>{result.message.senderName.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <span className="text-sm font-medium">{result.message.senderName}</span>

@@ -192,7 +192,7 @@ export default function SubmissionsPage() {
                         <div key={index} className="relative group">
                           <div className="aspect-[3/4] border rounded-lg overflow-hidden bg-muted">
                             <Image
-                              src={URL.createObjectURL(page) || "/placeholder.svg"}
+                              src={URL.createObjectURL(page) || "/default-image/comic2.jpg"}
                               alt={`Page ${index + 1}`}
                               width={120}
                               height={160}

@@ -29,7 +29,7 @@ const collaborations = [
       "Looking for writers and artists to contribute to a science fiction anthology. Each contributor will create a 5-10 page story. Professional publication planned.",
     author: {
       name: "Sarah Chen",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Editor & Publisher",
       verified: true,
     },
@@ -53,7 +53,7 @@ const collaborations = [
       "I have a completed script for a fantasy webcomic series and need a talented artist to bring it to life. Long-term collaboration with potential for monetization.",
     author: {
       name: "Mike Rodriguez",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Writer",
       verified: false,
     },
@@ -77,7 +77,7 @@ const collaborations = [
       "The International Comic Contest is coming up! Looking for team members to create an award-winning entry. Previous contest experience preferred.",
     author: {
       name: "Emma Wilson",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Art Director",
       verified: true,
     },
@@ -101,7 +101,7 @@ const collaborations = [
       "Artist looking for another artist to do art trades and collaborative pieces. Great for portfolio building and skill sharing.",
     author: {
       name: "Alex Thompson",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Digital Artist",
       verified: false,
     },
@@ -125,7 +125,7 @@ const collaborations = [
       "Experienced writer seeking other writers for regular script exchanges and detailed critiques. Focus on improving storytelling and character development.",
     author: {
       name: "Jennifer Park",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       role: "Script Writer",
       verified: true,
     },
@@ -268,7 +268,7 @@ export default function CollaborationsPage() {
 
                     <div className="flex items-center gap-2">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={collab.author.avatar || "/placeholder.svg"} alt={collab.author.name} />
+                        <AvatarImage src={collab.author.avatar || "/default-image/comic2.jpg"} alt={collab.author.name} />
                         <AvatarFallback>{collab.author.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="flex items-center gap-2">
@@ -425,7 +425,7 @@ export default function CollaborationsPage() {
 
                     <div className="flex items-center gap-2">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={collab.author.avatar || "/placeholder.svg"} alt={collab.author.name} />
+                        <AvatarImage src={collab.author.avatar || "/default-image/comic2.jpg"} alt={collab.author.name} />
                         <AvatarFallback>{collab.author.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="flex items-center gap-2">

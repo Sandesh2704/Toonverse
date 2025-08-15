@@ -29,8 +29,8 @@ const groups = [
     description:
       "A community for manga creators to share techniques, get feedback, and collaborate on projects. We focus on traditional and digital manga creation.",
     members: 1247,
-    avatar: "/placeholder.svg?height=64&width=64",
-    banner: "/placeholder.svg?height=200&width=400",
+    avatar: "/default-image/comic2.jpg?height=64&width=64",
+    banner: "/default-image/comic2.jpg?height=200&width=400",
     category: "manga",
     privacy: "public",
     isJoined: false,
@@ -46,8 +46,8 @@ const groups = [
     description:
       "Supporting independent comic creators with resources, networking opportunities, and collaborative projects.",
     members: 892,
-    avatar: "/placeholder.svg?height=64&width=64",
-    banner: "/placeholder.svg?height=200&width=400",
+    avatar: "/default-image/comic2.jpg?height=64&width=64",
+    banner: "/default-image/comic2.jpg?height=200&width=400",
     category: "comics",
     privacy: "public",
     isJoined: true,
@@ -63,8 +63,8 @@ const groups = [
     description:
       "Learn and share digital art techniques specifically for comic and manga creation. From basics to advanced workflows.",
     members: 2156,
-    avatar: "/placeholder.svg?height=64&width=64",
-    banner: "/placeholder.svg?height=200&width=400",
+    avatar: "/default-image/comic2.jpg?height=64&width=64",
+    banner: "/default-image/comic2.jpg?height=200&width=400",
     category: "art",
     privacy: "public",
     isJoined: false,
@@ -80,8 +80,8 @@ const groups = [
     description:
       "A private group for serious writers to share drafts, provide detailed critiques, and improve storytelling skills.",
     members: 156,
-    avatar: "/placeholder.svg?height=64&width=64",
-    banner: "/placeholder.svg?height=200&width=400",
+    avatar: "/default-image/comic2.jpg?height=64&width=64",
+    banner: "/default-image/comic2.jpg?height=200&width=400",
     category: "writing",
     privacy: "private",
     isJoined: false,
@@ -97,8 +97,8 @@ const groups = [
     description:
       "Connect with successful publishers and learn the ins and outs of getting your work published and marketed effectively.",
     members: 634,
-    avatar: "/placeholder.svg?height=64&width=64",
-    banner: "/placeholder.svg?height=200&width=400",
+    avatar: "/default-image/comic2.jpg?height=64&width=64",
+    banner: "/default-image/comic2.jpg?height=200&width=400",
     category: "publishing",
     privacy: "public",
     isJoined: true,
@@ -114,8 +114,8 @@ const groups = [
     description:
       "A welcoming space for newcomers to comic creation. Get started with basic tips, tools, and encouragement from the community.",
     members: 1834,
-    avatar: "/placeholder.svg?height=64&width=64",
-    banner: "/placeholder.svg?height=200&width=400",
+    avatar: "/default-image/comic2.jpg?height=64&width=64",
+    banner: "/default-image/comic2.jpg?height=200&width=400",
     category: "comics",
     privacy: "public",
     isJoined: false,
@@ -228,7 +228,7 @@ export default function GroupsPage() {
                       }}
                     />
                     <Avatar className="absolute -bottom-6 left-4 h-12 w-12 border-4 border-background">
-                      <AvatarImage src={group.avatar || "/placeholder.svg"} alt={group.name} />
+                      <AvatarImage src={group.avatar || "/default-image/comic2.jpg"} alt={group.name} />
                       <AvatarFallback>{group.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     {group.featured && (
@@ -316,7 +316,7 @@ export default function GroupsPage() {
                         }}
                       />
                       <Avatar className="absolute -bottom-6 left-4 h-12 w-12 border-4 border-background">
-                        <AvatarImage src={group.avatar || "/placeholder.svg"} alt={group.name} />
+                        <AvatarImage src={group.avatar || "/default-image/comic2.jpg"} alt={group.name} />
                         <AvatarFallback>{group.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       {group.isOwner && (
@@ -376,7 +376,7 @@ export default function GroupsPage() {
                       }}
                     />
                     <Avatar className="absolute -bottom-6 left-4 h-12 w-12 border-4 border-background">
-                      <AvatarImage src={group.avatar || "/placeholder.svg"} alt={group.name} />
+                      <AvatarImage src={group.avatar || "/default-image/comic2.jpg"} alt={group.name} />
                       <AvatarFallback>{group.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <Badge className="absolute top-2 right-2 bg-yellow-500 text-yellow-900">

@@ -24,7 +24,7 @@ const comics = [
     rating: 4.8,
     followers: 2340,
     lastUpdated: "2 days ago",
-    thumbnail: "/placeholder.svg?height=120&width=90&text=Comic+1",
+    thumbnail: "/default-image/comic2.jpg?height=120&width=90&text=Comic+1",
     category: "Fantasy",
     progress: 85,
   },
@@ -37,7 +37,7 @@ const comics = [
     rating: 0,
     followers: 0,
     lastUpdated: "1 week ago",
-    thumbnail: "/placeholder.svg?height=120&width=90&text=Comic+2",
+    thumbnail: "/default-image/comic2.jpg?height=120&width=90&text=Comic+2",
     category: "Sci-Fi",
     progress: 60,
   },
@@ -50,7 +50,7 @@ const comics = [
     rating: 0,
     followers: 0,
     lastUpdated: "3 days ago",
-    thumbnail: "/placeholder.svg?height=120&width=90&text=Comic+3",
+    thumbnail: "/default-image/comic2.jpg?height=120&width=90&text=Comic+3",
     category: "Fantasy",
     progress: 75,
   },
@@ -63,7 +63,7 @@ const comics = [
     rating: 4.6,
     followers: 1890,
     lastUpdated: "1 day ago",
-    thumbnail: "/placeholder.svg?height=120&width=90&text=Comic+4",
+    thumbnail: "/default-image/comic2.jpg?height=120&width=90&text=Comic+4",
     category: "Supernatural",
     progress: 90,
   },
@@ -201,7 +201,7 @@ export default function WriterComicsPage() {
             <Card className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image
-                  src={comic.thumbnail || "/placeholder.svg"}
+                  src={comic.thumbnail || "/default-image/comic2.jpg"}
                   alt={comic.title}
                   width={300}
                   height={200}

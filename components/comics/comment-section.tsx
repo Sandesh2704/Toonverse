@@ -146,7 +146,7 @@ export function CommentSection({ comments, comicId, onCommentsUpdate }: CommentS
             <div className="space-y-4 p-4 border rounded-lg bg-muted/30">
               <div className="flex items-center space-x-3">
                 <Avatar>
-                  <AvatarImage src={user.avatar || "/placeholder.svg"} />
+                  <AvatarImage src={user.avatar || "/default-image/comic2.jpg"} />
                   <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div>
@@ -275,7 +275,7 @@ function CommentCard({
     <div className="space-y-4">
       <div className="flex space-x-3">
         <Avatar>
-          <AvatarImage src={comment.userAvatar || "/placeholder.svg"} />
+          <AvatarImage src={comment.userAvatar || "/default-image/comic2.jpg"} />
           <AvatarFallback>{comment.userName.charAt(0)}</AvatarFallback>
         </Avatar>
 
@@ -362,7 +362,7 @@ function CommentCard({
               {comment.replies.map((reply) => (
                 <div key={reply.id} className="flex space-x-3">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={reply.userAvatar || "/placeholder.svg"} />
+                    <AvatarImage src={reply.userAvatar || "/default-image/comic2.jpg"} />
                     <AvatarFallback className="text-xs">{reply.userName.charAt(0)}</AvatarFallback>
                   </Avatar>
 

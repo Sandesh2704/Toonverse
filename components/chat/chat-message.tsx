@@ -56,7 +56,7 @@ export function ChatMessage({ message, showAvatar }: ChatMessageProps) {
       <div className="flex-shrink-0">
         {showAvatar ? (
           <Avatar className="h-8 w-8">
-            <AvatarImage src={message.senderAvatar || "/placeholder.svg"} />
+            <AvatarImage src={message.senderAvatar || "/default-image/comic2.jpg"} />
             <AvatarFallback>{message.senderName.charAt(0)}</AvatarFallback>
           </Avatar>
         ) : (

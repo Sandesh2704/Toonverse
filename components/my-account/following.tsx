@@ -101,7 +101,7 @@ export default function Following() {
                                 className="flex items-center space-x-4 p-4 border rounded-lg hover:bg-muted/50 transition-colors"
                             >
                                 <Avatar className="h-16 w-16">
-                                    <AvatarImage src={follow.writer.avatar || "/placeholder.svg"} alt={follow.writer.name} />
+                                    <AvatarImage src={follow.writer.avatar || "/default-image/comic2.jpg"} alt={follow.writer.name} />
                                     <AvatarFallback>
                                         {follow.writer.name
                                             .split(" ")

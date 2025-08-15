@@ -85,7 +85,7 @@ const recentTopics = [
     id: 1,
     title: "Best practices for character development in manga",
     author: "Sarah Chen",
-    avatar: "/placeholder.svg?height=32&width=32",
+    avatar: "/default-image/comic2.jpg?height=32&width=32",
     category: "Writing Tips",
     replies: 23,
     views: 456,
@@ -99,7 +99,7 @@ const recentTopics = [
     id: 2,
     title: "Community Guidelines - Please Read",
     author: "Admin",
-    avatar: "/placeholder.svg?height=32&width=32",
+    avatar: "/default-image/comic2.jpg?height=32&width=32",
     category: "Announcements",
     replies: 5,
     views: 1234,
@@ -113,7 +113,7 @@ const recentTopics = [
     id: 3,
     title: "Looking for feedback on my new comic series",
     author: "Mike Rodriguez",
-    avatar: "/placeholder.svg?height=32&width=32",
+    avatar: "/default-image/comic2.jpg?height=32&width=32",
     category: "General Discussion",
     replies: 15,
     views: 234,
@@ -127,7 +127,7 @@ const recentTopics = [
     id: 4,
     title: "Digital art tools comparison - Procreate vs Photoshop",
     author: "Emma Wilson",
-    avatar: "/placeholder.svg?height=32&width=32",
+    avatar: "/default-image/comic2.jpg?height=32&width=32",
     category: "Art & Design",
     replies: 31,
     views: 789,
@@ -258,7 +258,7 @@ export default function ForumsPage() {
                 <CardContent className="p-4">
                   <div className="flex items-start gap-4">
                     <Avatar>
-                      <AvatarImage src={topic.avatar || "/placeholder.svg"} alt={topic.author} />
+                      <AvatarImage src={topic.avatar || "/default-image/comic2.jpg"} alt={topic.author} />
                       <AvatarFallback>{topic.author.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div className="flex-1 space-y-2">

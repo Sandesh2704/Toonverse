@@ -102,7 +102,7 @@ export function ComicReader({
               className="relative w-full"
             >
               <Image
-                src={page || "/placeholder.svg"}
+                src={page || "/default-image/comic2.jpg"}
                 alt={`Page ${index + 1}`}
                 width={800}
                 height={1200}
@@ -245,7 +245,7 @@ export function ComicReader({
                   onClick={zoom <= 1 ? handleImageClick : undefined}
                 >
                   <Image
-                    src={page || "/placeholder.svg"}
+                    src={page || "/default-image/comic2.jpg"}
                     alt={`Page ${currentPage + index + 1}`}
                     width={600}
                     height={900}

@@ -31,7 +31,7 @@ export default function CommunityPage() {
       id: 1,
       type: "message",
       user: "Alex Chen",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       action: "posted in",
       target: "General Discussion",
       time: "2 minutes ago",
@@ -40,7 +40,7 @@ export default function CommunityPage() {
       id: 2,
       type: "join",
       user: "Sarah Kim",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       action: "joined",
       target: "Manga Artists",
       time: "5 minutes ago",
@@ -49,7 +49,7 @@ export default function CommunityPage() {
       id: 3,
       type: "collaboration",
       user: "Mike Johnson",
-      avatar: "/placeholder.svg?height=32&width=32",
+      avatar: "/default-image/comic2.jpg?height=32&width=32",
       action: "started a collaboration in",
       target: "Writing Circle",
       time: "10 minutes ago",
@@ -146,7 +146,7 @@ export default function CommunityPage() {
               <div key={room.id} className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={room.avatar || "/placeholder.svg"} />
+                    <AvatarImage src={room.avatar || "/default-image/comic2.jpg"} />
                     <AvatarFallback>
                       <Hash className="h-4 w-4" />
                     </AvatarFallback>
@@ -183,7 +183,7 @@ export default function CommunityPage() {
             {recentActivity.map((activity) => (
               <div key={activity.id} className="flex items-center gap-3">
                 <Avatar className="h-8 w-8">
-                  <AvatarImage src={activity.avatar || "/placeholder.svg"} />
+                  <AvatarImage src={activity.avatar || "/default-image/comic2.jpg"} />
                   <AvatarFallback>{activity.user.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">

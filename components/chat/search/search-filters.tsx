@@ -75,7 +75,7 @@ export function SearchFilters() {
                 />
                 <Label htmlFor={`room-${room.id}`} className="flex items-center gap-2 cursor-pointer">
                   <Avatar className="h-5 w-5">
-                    <AvatarImage src={room.avatar || "/placeholder.svg"} />
+                    <AvatarImage src={room.avatar || "/default-image/comic2.jpg"} />
                     <AvatarFallback>
                       {room.type === "group" ? <Hash className="h-3 w-3" /> : <User className="h-3 w-3" />}
                     </AvatarFallback>
@@ -108,7 +108,7 @@ export function SearchFilters() {
                 />
                 <Label htmlFor={`sender-${participant.userId}`} className="flex items-center gap-2 cursor-pointer">
                   <Avatar className="h-5 w-5">
-                    <AvatarImage src={participant.avatar || "/placeholder.svg"} />
+                    <AvatarImage src={participant.avatar || "/default-image/comic2.jpg"} />
                     <AvatarFallback>{participant.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   <span className="text-sm">{participant.name}</span>
