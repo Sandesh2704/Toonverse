@@ -8,8 +8,12 @@ import { LatestSection } from "@/components/home/latest-section"
 import { CategoriesSection } from "@/components/home/categories-section"
 import { NewsletterSection } from "@/components/home/newsletter-section"
 import { TrendingSection } from "@/components/home/trending-section"
+import { useEffect, useState } from "react"
+import { PromotionBanner } from "@/components/home/promotion-banner"
 
 export default function HomePage() {
+
+ 
   return (
     <div className="min-h-screen">
       <HeroSection />
@@ -18,6 +22,9 @@ export default function HomePage() {
       <WritersSection />
       <LatestSection />
       <CategoriesSection />
+
+      <PromotionBanner  />
+    
       {/* <NewsletterSection /> */}
     </div>
   )

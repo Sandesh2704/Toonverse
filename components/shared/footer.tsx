@@ -11,9 +11,9 @@ export function Footer() {
    
     <footer className="">
  
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2  lg:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <BookOpen className="h-5 w-5" />
@@ -94,7 +94,7 @@ export function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="space-y-4">
+          <div className="space-y-4 col-span-2 lg:col-span-1">
             <h3 className="text-lg font-semibold">Stay Updated</h3>
             <p className="text-sm text-muted-foreground">Subscribe to get notified about new comics and updates.</p>
             <div className="flex space-x-2">

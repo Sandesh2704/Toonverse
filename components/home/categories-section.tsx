@@ -76,7 +76,7 @@ const categoryIcons = {
 function CategoryCard({ category }: { category: string }) {
   const Icon = categoryIcons[category as keyof typeof categoryIcons] || BookOpen
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer mx-2 w-44 h-44 flex flex-col">
+    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer mx-2 w-24 md:w-44 h-44 flex flex-col">
       <CardContent className="p-4 flex flex-col flex-1 text-center justify-between">
         <Link href={`/comics/categories/${category.toLowerCase()}`} className="flex flex-col flex-1">
           <div className="flex flex-col items-center space-y-3 flex-1">
@@ -124,9 +124,9 @@ export function CategoriesSection() {
         </motion.div>
 
         <div className="flex flex-col relative gap-4">
-           <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-purple-50 via-purple-50/70 to-transparent z-10 pointer-events-none"></div>
-      {/* Gradient overlay right */}
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-indigo-50 via-indigo-50/70 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-purple-50 via-purple-50/70 to-transparent z-10 pointer-events-none"></div>
+          {/* Gradient overlay right */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-indigo-50 via-indigo-50/70 to-transparent z-10 pointer-events-none"></div>
 
           {rows.map((row, rowIndex) => (
             <Marquee

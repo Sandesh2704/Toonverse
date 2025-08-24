@@ -21,12 +21,14 @@ import type { LoginCredentials, RegisterData } from "@/types/auth"
 
 // Zod schemas
 const loginSchema = z.object({
+  role: z.enum(["reader"]).optional(),
   email: z.string().email("Please enter a valid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
   rememberMe: z.boolean().optional(),
 })
 
 const registerSchema = z.object({
+   role: z.enum(["reader"]).optional(),
   name: z.string().min(1, "Full name is required"),
   username: z.string().min(3, "Username must be at least 3 characters"),
   email: z.string().email("Please enter a valid email address"),
@@ -69,7 +71,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = "login" }: Au
 
   const registerForm = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    defaultValues: { name: "", username: "", email: "", password: "", confirmPassword: "", agreeToTerms: false },
+    defaultValues: { name: "", username: "", email: "",  password: "", confirmPassword: "", agreeToTerms: false, role:"reader" },
   })
 
   const passwordRequirements = [
