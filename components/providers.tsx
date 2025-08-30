@@ -4,14 +4,25 @@ import { Provider } from "react-redux"
 import { store } from "@/store"
 import { Toaster } from "sonner"
 import { AuthProvider } from "@/hooks/useAuth"
+import { ThemeProvider } from "@/components/theme-provider"
+import { ChatProvider } from "@/components/chat/chat-provider"
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
-      <AuthProvider>
-        {children}
-        <Toaster position="top-right" richColors />
-      </AuthProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <AuthProvider>
+          <ChatProvider>
+            {children}
+            <Toaster position="top-right" richColors />
+          </ChatProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </Provider>
   )
 }

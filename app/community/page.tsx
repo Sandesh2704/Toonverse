@@ -57,7 +57,7 @@ export default function CommunityPage() {
   ]
 
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto px-4 py-8 space-y-8">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold">Community Hub</h1>
@@ -87,7 +87,7 @@ export default function CommunityPage() {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Button className="h-auto p-4">
+        <Button className="h-auto p-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
           <Link href="/community/chat">
             <div className="text-center">
               <MessageSquare className="h-6 w-6 mx-auto mb-2" />
@@ -124,6 +124,44 @@ export default function CommunityPage() {
           </Link>
         </Button>
       </div>
+
+      {/* Messaging Shortcut */}
+      <Card className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200 dark:border-purple-800">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <MessageSquare className="h-5 w-5 text-purple-600" />
+            Quick Access to Messages
+          </CardTitle>
+          <CardDescription>
+            Stay connected with the community through our integrated messaging system
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <Button variant="outline" className="justify-start h-auto p-3">
+              <Link href="/community/chat" className="flex items-center gap-2">
+                <MessageSquare className="h-4 w-4" />
+                <div className="text-left">
+                  <div className="font-medium">Open Full Chat</div>
+                  <div className="text-xs text-muted-foreground">Complete messaging interface</div>
+                </div>
+              </Link>
+            </Button>
+            <Button variant="outline" className="justify-start h-auto p-3">
+              <Link href="/community/forums" className="flex items-center gap-2">
+                <MessageSquare className="h-4 w-4" />
+                <div className="text-left">
+                  <div className="font-medium">Browse Forums</div>
+                  <div className="text-xs text-muted-foreground">Discussion threads</div>
+                </div>
+              </Link>
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground italic">
+            💡 Tip: Use the Messages button in the top navigation for quick access to recent conversations!
+          </p>
+        </CardContent>
+      </Card>
 
       {/* Active Chats & Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

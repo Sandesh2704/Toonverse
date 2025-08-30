@@ -76,24 +76,25 @@ const categoryIcons = {
 function CategoryCard({ category }: { category: string }) {
   const Icon = categoryIcons[category as keyof typeof categoryIcons] || BookOpen
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer mx-2 w-24 md:w-44 h-44 flex flex-col">
-      <CardContent className="p-4 flex flex-col flex-1 text-center justify-between">
-        <Link href={`/comics/categories/${category.toLowerCase()}`} className="flex flex-col flex-1">
+    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer mx-2 w-24 md:w-44 h-44 px-3 flex flex-col">
+
+        <Link href={`/comics/categories/${category.toLowerCase()}`} className="flex flex-col text-center  flex-1">
           <div className="flex flex-col items-center space-y-3 flex-1">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
               <Icon className="h-6 w-6" />
             </div>
             <div className="flex flex-col items-center">
+            <Badge variant="secondary" className="mb-2">
+                {Math.floor(Math.random() * 50) + 10} comics
+              </Badge>
               <h3 className="font-semibold group-hover:text-primary transition-colors text-sm line-clamp-2 h-10">
                 {category}
               </h3>
-              <Badge variant="secondary" className="mt-1">
-                {Math.floor(Math.random() * 50) + 10} comics
-              </Badge>
+            
             </div>
           </div>
         </Link>
-      </CardContent>
+     
     </Card>
   )
 }

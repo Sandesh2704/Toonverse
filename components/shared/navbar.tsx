@@ -6,6 +6,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {  Search,  Menu,  X,  User,  LogOut,  Settings,  BookOpen,  PenTool,  Users,  Filter as FilterIcon,   MessageCircleMore, // Discord
   Send,  Shuffle,  ChevronRight,    Twitter,  Globe,  Bell, MessageSquare,  Calendar,  UsersRound,  Heart, Star,  Zap,} from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { InstagramChatPanel } from "@/components/shared/instagram-chat-panel";
+import { FloatingMessagingButton } from "@/components/shared/floating-messaging-button";
+import { EnhancedNotifications } from "@/components/shared/enhanced-notifications";
+import { useChat } from "@/components/chat/chat-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,7 +18,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -39,36 +43,7 @@ const mainNav = [
 ];
 
 
-const mockNotifications = [
-  {
-    id: 1,
-    type: "like",
-    message: "Sarah liked your comment on 'Attack on Titan'",
-    time: "2 min ago",
-    unread: true,
-  },
-  {
-    id: 2,
-    type: "comment",
-    message: "New reply to your discussion about 'One Piece'",
-    time: "5 min ago",
-    unread: true,
-  },
-  {
-    id: 3,
-    type: "event",
-    message: "Anime discussion event starting in 1 hour",
-    time: "15 min ago",
-    unread: false,
-  },
-  {
-    id: 4,
-    type: "follow",
-    message: "Alex started following you",
-    time: "1 hour ago",
-    unread: false,
-  },
-];
+
 
 export function Navbar() {
   const router = useRouter();
@@ -81,6 +56,7 @@ export function Navbar() {
   // Global UI state
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const { state: chatState, openChat } = useChat();
 
   // Search state
   const [searchQuery, setSearchQuery] = useState("");
@@ -154,22 +130,8 @@ export function Navbar() {
   };
 
   const showBecomeWriter = !user || user?.role !== "writer";
-  const unreadNotifications = mockNotifications.filter(n => n.unread).length;
 
-  const getNotificationIcon = (type: string) => {
-    switch (type) {
-      case "like":
-        return <Heart className="h-4 w-4 text-red-500" />;
-      case "comment":
-        return <MessageSquare className="h-4 w-4 text-blue-500" />;
-      case "event":
-        return <Calendar className="h-4 w-4 text-green-500" />;
-      case "follow":
-        return <UsersRound className="h-4 w-4 text-purple-500" />;
-      default:
-        return <Bell className="h-4 w-4" />;
-    }
-  };
+
 
   const socialLinks = [
   {name: "Discord", href: "/discord",  icon: MessageCircleMore, bg: "bg-[#5865F2]", },
@@ -342,57 +304,31 @@ export function Navbar() {
                 </HoverCard>
               )}
 
-              {/* Notifications (only for logged-in users) */}
+              {/* Messaging (only for logged-in users) */}
               {user && (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="relative">
-                      <Bell className="h-5 w-5" />
-                      {unreadNotifications > 0 && (
-                        <Badge
-                          variant="destructive"
-                          className="absolute -top-1 -right-1 h-5 w-5 p-0 text-xs flex items-center justify-center"
-                        >
-                          {unreadNotifications > 9 ? "9+" : unreadNotifications}
-                        </Badge>
-                      )}
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-80" align="end">
-                    <DropdownMenuLabel className="flex items-center justify-between">
-                      <span>Notifications</span>
-                      {unreadNotifications > 0 && (
-                        <Badge variant="secondary" className="text-xs">
-                          {unreadNotifications} new
-                        </Badge>
-                      )}
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <div className="max-h-96 overflow-y-auto">
-                      {mockNotifications.map((notification) => (
-                        <DropdownMenuItem key={notification.id} className="flex-col items-start p-3 cursor-pointer">
-                          <div className="flex items-start gap-3 w-full">
-                            {getNotificationIcon(notification.type)}
-                            <div className="flex-1 space-y-1">
-                              <p className="text-sm leading-relaxed">{notification.message}</p>
-                              <p className="text-xs text-muted-foreground">{notification.time}</p>
-                            </div>
-                            {notification.unread && (
-                              <div className="w-2 h-2 bg-blue-500 rounded-full mt-1" />
-                            )}
-                          </div>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem asChild>
-                      <Link href="/notifications" className="w-full text-center text-sm text-primary">
-                        View all notifications
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="relative"
+                  onClick={openChat}
+                >
+                  <MessageSquare className="h-5 w-5" />
+                  {chatState.unreadCount > 0 && (
+                    <Badge
+                      variant="destructive"
+                      className="absolute -top-1 -right-1 h-5 w-5 p-0 text-xs flex items-center justify-center"
+                    >
+                      {chatState.unreadCount > 9 ? "9+" : chatState.unreadCount}
+                    </Badge>
+                  )}
+                </Button>
               )}
+
+              {/* Enhanced Notifications (only for logged-in users) */}
+              {user && <EnhancedNotifications />}
+
+              {/* Theme Toggle */}
+              <ThemeToggle />
 
               {/* Auth / User menu */}
               {user ? (
@@ -415,15 +351,13 @@ export function Navbar() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-56" align="end" forceMount>
-                    <DropdownMenuLabel className="font-normal">
-                      <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none">{user.name}</p>
-                        <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
-                        <Badge variant={user.role === "writer" ? "default" : "secondary"} className="w-fit mt-1">
-                          {user.role}
-                        </Badge>
-                      </div>
-                    </DropdownMenuLabel>
+                    <div className="flex flex-col space-y-1 p-2">
+                      <p className="text-sm font-medium leading-none">{user.name}</p>
+                      <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
+                      <Badge variant={user.role === "writer" ? "default" : "secondary"} className="w-fit mt-1">
+                        {user.role}
+                      </Badge>
+                    </div>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
                       <Link href="/my-account" className="flex items-center">
@@ -450,6 +384,15 @@ export function Navbar() {
                         <Users className="mr-2 h-4 w-4" />
                         <span>Community</span>
                       </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={openChat} className="flex items-center">
+                      <MessageSquare className="mr-2 h-4 w-4" />
+                      <span>Messages</span>
+                      {chatState.unreadCount > 0 && (
+                        <Badge variant="destructive" className="ml-auto h-4 w-4 p-0 text-xs">
+                          {chatState.unreadCount}
+                        </Badge>
+                      )}
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
@@ -480,6 +423,27 @@ export function Navbar() {
               >
                 <Search className="h-5 w-5" />
               </Button>
+
+              {/* Mobile messaging icon */}
+              {user && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Open messages"
+                  className="md:hidden relative"
+                  onClick={openChat}
+                >
+                  <MessageSquare className="h-5 w-5" />
+                  {chatState.unreadCount > 0 && (
+                    <Badge
+                      variant="destructive"
+                      className="absolute -top-1 -right-1 h-5 w-5 p-0 text-xs flex items-center justify-center"
+                    >
+                      {chatState.unreadCount > 9 ? "9+" : chatState.unreadCount}
+                    </Badge>
+                  )}
+                </Button>
+              )}
             </div>
           </div>
         </Section>
@@ -535,6 +499,9 @@ export function Navbar() {
       {/* Auth Modal */}
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
 
+      {/* Instagram Chat Panel */}
+      <InstagramChatPanel />
+
       {/* OVERLAY for sidebar & mobile search click-outside */}
       <AnimatePresence>
         {(isSidebarOpen || isMobileSearchOpen) && (
@@ -548,6 +515,9 @@ export function Navbar() {
           />
         )}
       </AnimatePresence>
+
+      {/* Floating Messaging Button */}
+      <FloatingMessagingButton />
 
       {/* SIDEBAR DRAWER (mobile + desktop) */}
       <AnimatePresence>
@@ -595,6 +565,30 @@ export function Navbar() {
                       <div className="text-xs text-start text-purple-100 mt-1">Chat • Groups • Events</div>
                     </div>
                   </button>
+
+                  {/* Messages Button - For logged-in users */}
+                  {user && (
+                    <button
+                      onClick={() => {
+                        openChat();
+                        setIsSidebarOpen(false);
+                      }}
+                      className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-md hover:shadow-lg transition-all duration-200"
+                    >
+                      <MessageSquare className="h-5 w-5" />
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <div className="font-medium">Messages</div>
+                          <div className="flex items-center w-fit gap-1 text-xs bg-white/20 px-2 py-1 rounded-full">
+                            <Badge variant="destructive" className="h-4 w-4 p-0 text-xs">
+                              1
+                            </Badge>
+                          </div>
+                        </div>
+                        <div className="text-xs text-start text-blue-100 mt-1">Chat • Groups • Direct</div>
+                      </div>
+                    </button>
+                  )}
 
 
                   {showBecomeWriter && (

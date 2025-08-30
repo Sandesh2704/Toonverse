@@ -20,14 +20,25 @@ export default function ChatPage() {
   }, [dispatch])
 
   return (
-    <div className="flex h-full">
-      {/* Chat Sidebar */}
-      <div className="w-80 border-r bg-background">
-        <ChatSidebar />
+    <div className="container mx-auto px-4 py-6">
+      {/* Header */}
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold">Messages & Community</h1>
+        <p className="text-muted-foreground mt-2">
+          Connect with fellow creators and join the conversation
+        </p>
       </div>
+      
+      {/* Chat Interface */}
+      <div className="flex h-[calc(100vh-12rem)] border rounded-lg overflow-hidden bg-background">
+        {/* Chat Sidebar */}
+        <div className="w-80 border-r bg-background">
+          <ChatSidebar />
+        </div>
 
-      {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col">{activeChat ? <ChatWindow roomId={activeChat} /> : <ChatWelcome />}</div>
+        {/* Main Chat Area */}
+        <div className="flex-1 flex flex-col">{activeChat ? <ChatWindow roomId={activeChat} /> : <ChatWelcome />}</div>
+      </div>
 
       {/* Search Modal */}
       <ChatSearch />

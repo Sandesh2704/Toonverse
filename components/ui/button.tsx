@@ -67,7 +67,7 @@ const buttonVariants = cva(
 interface ButtonProps
   extends Omit<React.ComponentProps<"button">, 'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+  // asChild?: boolean;
   loading?: boolean;
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
